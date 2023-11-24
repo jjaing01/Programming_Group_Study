@@ -9,6 +9,12 @@
     <Compile Remove="00.2023-11-26\ctor00.cs" />
     <Compile Remove="00.2023-11-26\ctor01.cs" />
     <Compile Remove="00.2023-11-26\ctor02.cs" />
+    <Compile Remove="00.2023-11-26\ctor03.cs" />
+    <Compile Remove="00.2023-11-26\ctor04.cs" />
+    <Compile Remove="00.2023-11-26\ctor05.cs" />
+    <Compile Remove="00.2023-11-26\ctor06.cs" />
+    <Compile Remove="00.2023-11-26\ctor07.cs" />
+    <Compile Remove="00.2023-11-26\ctor08.cs" />
     <Compile Remove="00.2023-11-26\IL00.cs" />
     <Compile Remove="Program.cs" />
   </ItemGroup>
@@ -17,6 +23,12 @@
     <None Include="00.2023-11-26\ctor00.cs" />
     <None Include="00.2023-11-26\ctor01.cs" />
     <None Include="00.2023-11-26\ctor02.cs" />
+    <None Include="00.2023-11-26\ctor03.cs" />
+    <None Include="00.2023-11-26\ctor04.cs" />
+    <None Include="00.2023-11-26\ctor05.cs" />
+    <None Include="00.2023-11-26\ctor06.cs" />
+    <None Include="00.2023-11-26\ctor07.cs" />
+    <None Include="00.2023-11-26\ctor08.cs" />
     <None Include="00.2023-11-26\IL00.cs" />
     <None Include="Program.cs" />
   </ItemGroup>
