@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="00.2023-11-26\ctor00.cs" />
+    <Compile Remove="00.2023-11-26\ctor01.cs" />
+    <Compile Remove="00.2023-11-26\ctor02.cs" />
+    <Compile Remove="00.2023-11-26\IL00.cs" />
+    <Compile Remove="Program.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="00.2023-11-26\ctor00.cs" />
+    <None Include="00.2023-11-26\ctor01.cs" />
+    <None Include="00.2023-11-26\ctor02.cs" />
+    <None Include="00.2023-11-26\IL00.cs" />
+    <None Include="Program.cs" />
+  </ItemGroup>
+
+</Project>
