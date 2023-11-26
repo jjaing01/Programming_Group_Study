@@ -2,7 +2,7 @@
 
 class Base
 {
-    public Base() { Console.WriteLine("Base()"); }
+    //public Base() { Console.WriteLine("Base()"); }
     public Base(int i) { Console.WriteLine("Base(int)"); }
 }
 
@@ -16,6 +16,6 @@ class Program1
 {
     static void Main()
     {
-        Derived d = new Derived(1);
+        Derived d = new Derived();
     }
 }

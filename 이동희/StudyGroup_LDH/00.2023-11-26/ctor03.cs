@@ -32,6 +32,23 @@ class Derived : Base
     }
 }
 
+
+/*
+ class Derived : Base
+{
+    public int a; 
+    public int b; 
+
+    public Derived()
+    {
+        a = 100;
+        Base();
+        b = 100;
+    }
+즉, 필드 초기화의 원리는 필드 초기화가 기반 클래스 생성자보다 먼저 진행된다.
+}
+ */
+
 class Program
 {
     public static void Main()

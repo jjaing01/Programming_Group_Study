@@ -1,6 +1,6 @@
 ﻿class Animal
 {
-    public Animal() { }
+    protected Animal() { }
 }
 
 class Dog : Animal
