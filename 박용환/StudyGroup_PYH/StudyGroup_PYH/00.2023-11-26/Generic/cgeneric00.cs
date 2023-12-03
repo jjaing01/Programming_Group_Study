@@ -2,39 +2,61 @@
 using System.Collections.Generic;
 using System.Linq;
 
-// .net 7.0 부터는 다르게 사용 public enum class Season
-public enum cEnum
-{
-    None,
-    Max
-}
-public class myList<T> : List<T> // <T> : 타입 매개변수
-{
-    public void Method<TFirst>() { }
+/* 
+    * 제네릭이란?
 
-    // public void EnumMethod<cEnum>() { }
-    // public void Method<TSecond>() { } // 컴파일 에러, 타입 매개변수의 이름만으로 오버로드 불가
+        제네릭은 C# 프로그래밍 언어에서 사용되는 강력하고 유연한 프로그래밍 개념이다
+        제네릭을 사용하면 타입을 동적으로 지정할 수 있고 다양한 형식의 데이터와 작업을 수행할 수 있다.
+        이는 코드의 재사용성을 높이고 형식 안정성을 강화하는 데 도움이 된다.
 
-    // public void Method<T, T>() { } // 컴파일 에러, 동일한 타입 매개변수 
+*/
+
+// List를 상속 받으면서 동시에 제네릭 타입 매개변수 TFirst를 사용
+public class myGenericList<T> : List<T> // <T> : 타입 매개변수
+{
+    public void Method<TFirst>() { Console.WriteLine($"Method<{typeof(TFirst)}>"); }
+    //public void Method<TSecond>() { } 
+
+    //public void Method<T, T>() { }
 }
 
 class cgeneric00
 {
     static void Main()
     {
-        myList<string> mylist = new myList<string>(); // <string> : 타입 인수
-        mylist.Add("PYH");
+        myGenericList<string> myGenericString = new myGenericList<string>(); // <string> : 타입 인수
+        var GenericList = myGenericString; // 명시적으로 지정하지 않아도 타입 추론이 가능
 
-        List<int> lists = new List<int>(5); // IEnumerable<T> 를 상속받는다. 이거 말고도 상속 받는게 많은데 이건 타고 들어가서 확인
-        lists.Add(6);
+        myGenericString.Add("PYH");
+        myGenericString.Method<string>();
 
-        foreach(int list in lists) // IEnumerable<T> 기능
+        foreach(var item in GenericList)
         {
-            Console.WriteLine(list);
+            Console.WriteLine($"item : {item}");
         }
 
-        var result = lists.Where(n => n > 5); // Linq 기능
-        Console.WriteLine(result);
+        myGenericList<int> myGenericInt = new myGenericList<int>(); 
+        myGenericInt.Add(1);
+        myGenericInt.Method<int>();
+
+
+        //List<int> lists = new List<int>(5); // IEnumerable<T> 를 상속받는다. 이거 말고도 상속 받는게 많은데 이건 타고 들어가서 확인
+        //lists.Add(3);
+        //lists.Add(4);
+        //lists.Add(6);
+
+        //var result = lists.Where(n => n > 5); // Linq 기능
+        //foreach (var item in result)
+        //{
+        //    Console.WriteLine(item);
+        //}
+
+        //string s = "yonghwan";
+        //string asura = string.IsNullOrEmpty(s)
+        //    ? "empty"
+        //    : "not empty";
+
+        //Console.WriteLine(asura);
     }
 }
 
