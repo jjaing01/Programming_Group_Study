@@ -30,7 +30,7 @@ class cgeneric00
         myGenericString.Add("PYH");
         myGenericString.Method<string>();
 
-        foreach(var item in GenericList)
+        foreach (var item in GenericList)
         {
             Console.WriteLine($"item : {item}");
         }

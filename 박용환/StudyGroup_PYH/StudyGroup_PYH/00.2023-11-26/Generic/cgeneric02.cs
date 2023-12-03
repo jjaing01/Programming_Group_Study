@@ -36,5 +36,12 @@ class cgeneric02
     {
         //var ConstraintsRef = new cConstraintsRef<cTypeOfRef>();
         //var ConstraintsValue = new cConstraintsValue<cRefClass>();
+        String? _String = null;
+        //string.IsNullOrEmpty();
+
+        string? a = "yong";
+        string b = "hwan";
+        Console.WriteLine($"a : {a}");
+        Console.WriteLine($"b : {b}");
     }
 }
