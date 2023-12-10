@@ -32,5 +32,6 @@ class Program
     {
         CPoint pt = new CPoint(1, 2);
         SPoint pt1 = new SPoint(1, 2);
+
     }
 }

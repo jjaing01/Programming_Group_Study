@@ -21,10 +21,9 @@ class Derived : Base
         b = 100;
     }
 
-    public override void Foo()
-    {
+    public override void Foo() =>  
         Console.WriteLine($"Derived.Foo: {a}, {b}");
-    }
+    
 
     public override void Goo(int n = 20)
     {
@@ -56,7 +55,7 @@ class Program
         // 생성자와 가상함수
         Derived d = new Derived();
 
-        // 가상 함수와 Default Parameter(선택적 파라미터)
+        // 가상 함수와 Optional Parameter(선택적 파라미터)
         Base b = new Derived();
         b.Goo();
     }
