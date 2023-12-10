@@ -6,4 +6,8 @@
     <StartupObject>StudyGroup_PYH.Program</StartupObject>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="00.2023-11-26\" />
+  </ItemGroup>
+
 </Project>

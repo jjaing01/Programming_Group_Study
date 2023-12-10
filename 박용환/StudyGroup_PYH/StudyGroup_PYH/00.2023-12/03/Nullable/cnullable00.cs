@@ -29,7 +29,7 @@ class CNullable00
         };
 
         // null체크
-        if (cne1.nullableint.HasValue)
+        if (cne1.nullableint is not null) // hasvalue, is not null 둘 다 표현은 가능하지만 가독성은 is not null,
         {
             Console.WriteLine($"Value: {cne1.nullableint.Value}");
         }
