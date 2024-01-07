@@ -5,6 +5,14 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
   <ItemGroup>
     <Compile Remove="00.2023-11-26\ctor00.cs" />
     <Compile Remove="00.2023-11-26\ctor01.cs" />
@@ -19,6 +27,13 @@
     <Compile Remove="00.2023-11-26\IL00.cs" />
     <Compile Remove="01.Basic\Basic00.cs" />
     <Compile Remove="01.Basic\Basic_IO.cs" />
+    <Compile Remove="01.Basic\ClassBasic.cs" />
+    <Compile Remove="01.Basic\ClassNewMethod.cs" />
+    <Compile Remove="01.Basic\Equality.cs" />
+    <Compile Remove="01.Basic\Interface.cs" />
+    <Compile Remove="01.Basic\type_basic.cs" />
+    <Compile Remove="01.Basic\valueAndReference.cs" />
+    <Compile Remove="01.Basic\valueAndReference2.cs" />
     <Compile Remove="Program.cs" />
   </ItemGroup>
 
@@ -36,6 +51,13 @@
     <None Include="00.2023-11-26\IL00.cs" />
     <None Include="01.Basic\Basic00.cs" />
     <None Include="01.Basic\Basic_IO.cs" />
+    <None Include="01.Basic\ClassBasic.cs" />
+    <None Include="01.Basic\ClassNewMethod.cs" />
+    <None Include="01.Basic\Equality.cs" />
+    <None Include="01.Basic\Interface.cs" />
+    <None Include="01.Basic\type_basic.cs" />
+    <None Include="01.Basic\valueAndReference.cs" />
+    <None Include="01.Basic\valueAndReference2.cs" />
     <None Include="Program.cs" />
   </ItemGroup>
 
