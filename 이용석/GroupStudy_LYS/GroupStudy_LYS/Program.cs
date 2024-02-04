@@ -78,86 +78,86 @@ namespace Nullable
       //Nullable<Enum> aStringNullable = null; // Enum값은 타입이 아니다.
       //Nullable<classNullable> aClassNullable = null;
       #region Array
-      //int?[] arr = new int?[10]; 
-      //arr[0] = 10; 
-      //arr[2] = 12;
-      //arr[5] = 15; 
-      //arr[7] = 17;
-      //foreach (var num in arr) //var 대신 int? 사용가능.                         
-      //{
-      //  if (true == num.HasValue)
-      //  {                        
-      //    Console.WriteLine($"num = {num.Value}");
-      //  }
-      //  else if(false == num.HasValue && num == null)
-      //  {
-      //    Console.WriteLine("Null 입니다.");
-      //  }
-      //}
+      int?[] arr = new int?[10];
+      arr[0] = 10;
+      arr[2] = 12;
+      arr[5] = 15;
+      arr[7] = 17;
+      foreach (var num in arr) //var 대신 int? 사용가능.                         
+      {
+        if (true == num.HasValue)
+        {
+          Console.WriteLine($"num = {num.Value}");
+        }
+        else if (false == num.HasValue && num == null)
+        {
+          Console.WriteLine("Null 입니다.");
+        }
+      }
       #endregion Array
 
-        // 선언 방법
-        // 아래 두개는 동일한 동작
-        //Nullable<T> 변수명
-        //T? 변수명
+      // 선언 방법
+      // 아래 두개는 동일한 동작
+      //Nullable<T> 변수명
+      //T? 변수명
 
-        //Nullable<int> a;
-        //int? b;
-
-
-        // 2. Nullable Boxing
-        // Null을 참조하게됨-> HasValue가 false
-        //Nullable<int> nullableNoValue = new Nullable<int>();
-        //object noVlaueObj = nullableNoValue;
-        //Console.WriteLine(noVlaueObj == null);
-        //Console.WriteLine(noVlaueObj.GetType()); // NullException
+      //Nullable<int> a;
+      //int? b;
 
 
-        //// Null을 참조하게됨-> HasValue가 true
-        //Nullable<int> nullableValue = new Nullable<int>(5);
-        //object VlaueObj = nullableValue;
-        //Console.WriteLine(VlaueObj == null);
-        //Console.WriteLine(VlaueObj.GetType());
+      // 2. Nullable Boxing
+      // Null을 참조하게됨-> HasValue가 false
+      //Nullable<int> nullableNoValue = new Nullable<int>();
+      //object noVlaueObj = nullableNoValue;
+      //Console.WriteLine(noVlaueObj == null);
+      //Console.WriteLine(noVlaueObj.GetType()); // NullException
 
 
-        //// 3. ?? 연산(병합) 
-        /// Null 이 아닐때만 해당값을 사용하고 Null이면 새로운 값을 사용하겠다.
-        //string NullValue = null;
-        //string message = string.Empty;
-
-        //if (NullValue == null)
-        //{
-        //  message = "1. Null값입니다.";
-        //  System.Console.WriteLine(message);
-        //}
-
-        //message = NullValue ?? "2. Null이므로 새로운 값으로 초기화 합니다.";
-        //System.Console.WriteLine(message);
+      //// Null을 참조하게됨-> HasValue가 true
+      //Nullable<int> nullableValue = new Nullable<int>(5);
+      //object VlaueObj = nullableValue;
+      //Console.WriteLine(VlaueObj == null);
+      //Console.WriteLine(VlaueObj.GetType());
 
 
-        //NullValue = "3. Null이 아닌 값으로 세팅되었습니다.";
-        //message = NullValue ?? "4. Null이므로 새로운 값으로 초기화 합니다.";
-        //System.Console.WriteLine(message);
+      //// 3. ?? 연산(병합) 
+      /// Null 이 아닐때만 해당값을 사용하고 Null이면 새로운 값을 사용하겠다.
+      //string NullValue = null;
+      //string message = string.Empty;
 
-        // 4. Nullable 가능논리
-        // 조건부 논리 연산자(&&, ||)에 대해서는 정의되어 있지 않음
+      //if (NullValue == null)
+      //{
+      //  message = "1. Null값입니다.";
+      //  System.Console.WriteLine(message);
+      //}
 
-        //Nullable<bool> a = true;
-        //Nullable<bool> b = false;
-        //bool c = true, d = false;
+      //message = NullValue ?? "2. Null이므로 새로운 값으로 초기화 합니다.";
+      //System.Console.WriteLine(message);
 
-        //// a && b 와 같은 형태로 사용할 수 없음
-        //if (//a&& b ||
-        //    // a.Value && b.Value
-        //    //|| a.GetValueOrDefault() && b.GetValueOrDefault()
-        //    )
-        //{
 
-        //}
-        //if (c && d)
-        //{
+      //NullValue = "3. Null이 아닌 값으로 세팅되었습니다.";
+      //message = NullValue ?? "4. Null이므로 새로운 값으로 초기화 합니다.";
+      //System.Console.WriteLine(message);
 
-        //}
+      // 4. Nullable 가능논리
+      // 조건부 논리 연산자(&&, ||)에 대해서는 정의되어 있지 않음
+
+      //Nullable<bool> a = true;
+      //Nullable<bool> b = false;
+      //bool c = true, d = false;
+
+      //// a && b 와 같은 형태로 사용할 수 없음
+      //if (//a&& b ||
+      //    // a.Value && b.Value
+      //    //|| a.GetValueOrDefault() && b.GetValueOrDefault()
+      //    )
+      //{
+
+      //}
+      //if (c && d)
+      //{
+
+      //}
 
 
 
