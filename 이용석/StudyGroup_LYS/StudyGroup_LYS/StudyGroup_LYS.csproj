@@ -8,13 +8,27 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Action_Func.cs" />
+    <Compile Remove="delegate_concept.cs" />
+    <Compile Remove="delegate_multicast.cs" />
     <Compile Remove="DH_240204.cs" />
+    <Compile Remove="Generic.cs" />
+    <Compile Remove="generic_constraint.cs" />
+    <Compile Remove="Indexer.cs" />
     <Compile Remove="Program.cs" />
+    <Compile Remove="Property.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Action_Func.cs" />
+    <None Include="delegate_concept.cs" />
+    <None Include="delegate_multicast.cs" />
     <None Include="DH_240204.cs" />
+    <None Include="Generic.cs" />
+    <None Include="generic_constraint.cs" />
+    <None Include="Indexer.cs" />
     <None Include="Program.cs" />
+    <None Include="Property.cs" />
   </ItemGroup>
 
 </Project>

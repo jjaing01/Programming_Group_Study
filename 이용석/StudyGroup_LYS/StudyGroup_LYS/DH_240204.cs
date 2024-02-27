@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StudyGroup_LYS
 {
-    // 1. 식 본문 메소드 ( Expresiion - body method)
+    // 1. 식 본문 메소드 ( Expresiion - body method )
     // 메소드의 구현이 단순한 경우 블록{}를 생략하고 '=>' 표기 뒤에 반환 값을 표기하는 기법
     // 아래 두개는 동일하다
     //static int square(int x)
@@ -57,7 +57,7 @@ namespace StudyGroup_LYS
         }
     }
 
-    // 2-4. fkdlqmfjfl so 침ㄴㄴdpeh wjrdyddl rksmdgkek.
+    // 2-4  라이브러리 내 class에도 적용이 가능하다.
     static class Stringextension
     {
         public static void Stop(this string str) => Console.WriteLine("Stop");
