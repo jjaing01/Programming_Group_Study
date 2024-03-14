@@ -37,6 +37,7 @@
     <Compile Remove="01.Basic\ClassBasic.cs" />
     <Compile Remove="01.Basic\ClassNewMethod.cs" />
     <Compile Remove="01.Basic\collection_interface.cs" />
+    <Compile Remove="01.Basic\coroutine.cs" />
     <Compile Remove="01.Basic\delegate_concept.cs" />
     <Compile Remove="01.Basic\delegate_multicast.cs" />
     <Compile Remove="01.Basic\ElvisOperator.cs" />
@@ -85,6 +86,7 @@
     <None Include="01.Basic\ClassBasic.cs" />
     <None Include="01.Basic\ClassNewMethod.cs" />
     <None Include="01.Basic\collection_interface.cs" />
+    <None Include="01.Basic\coroutine.cs" />
     <None Include="01.Basic\delegate_concept.cs" />
     <None Include="01.Basic\delegate_multicast.cs" />
     <None Include="01.Basic\ElvisOperator.cs" />
