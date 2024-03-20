@@ -43,7 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <None Include="Program.cs" />
+    <None Include="240317\1_LinqProcess.cs" />
+    <None Include="240317\0_linq%28concept%29.cs" />
+    <None Include="240317\2_Thread.cs" />
+    <None Include="240317\3_Task.cs" />
+    <Compile Include="240317\4_Task_2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
