@@ -77,7 +77,9 @@ namespace StudyGroup_PYH._2024_03
             t4.Start();
 
             // 5. Foreground Thread = 주 스레드가 종료되어도 나머지 쓰레드는 곟속 작업을 수행한다.
+            // Background thread = 주 스레드가 종료되면 나머지 스레드는 강제로 종료한다.
             currentThread.IsBackground = true;
+            currentThread.Join();
         }
     }
 }

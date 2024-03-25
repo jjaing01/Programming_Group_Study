@@ -27,6 +27,8 @@ namespace StudyGroup_PYH._2024_03
             // 2. Thread vs Task
             // - Thread Instance는 무조건 스레드를 생성한다.
             // - Task Instance는 시스템이 스레드풀을 만들어서 최적의 코드를 작성해준다.
+
+
         }
     }
 }
