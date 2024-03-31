@@ -80,6 +80,9 @@ namespace StudyGroup_PYH._2024_03
             // Background thread = 주 스레드가 종료되면 나머지 스레드는 강제로 종료한다.
             currentThread.IsBackground = true;
             currentThread.Join();
+
+
+            // ThreadPool. -> 스레드 풀 사용 IOCP와 같이 동작
         }
     }
 }

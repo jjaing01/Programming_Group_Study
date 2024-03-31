@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 
 namespace StudyGroup_PYH._2024_02
 {
@@ -26,6 +21,7 @@ namespace StudyGroup_PYH._2024_02
 
             // 위 코드를 자동 생성할 수 있다.
             // 1. using 키워드를 통해
+            // 2. 
             using (FileStream fs2 = new FileStream("A.txt", FileMode.CreateNew))
             {
                 // using => Try~Finally

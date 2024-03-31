@@ -132,12 +132,19 @@ namespace StudyGroup_PYH._2024_03
             collect_e.MoveNext();
             Console.WriteLine(collect_e.Current);
 
-            // foreach(int i in c3) == for(IEnumerator<int> p = c3.GetEnumerator(); p.MoveNext;) // 새로운 enumerator를 받아서 순회한다
-            foreach (var item in collect)
+            // foreach(int i in c3) == for(IEnumerator<int> p = c3.GetEnumerator(); p.MoveNext;) 
+            // 새로운 enumerator를 받아서 순회한다
+            // 새로운 객체
+            foreach (var item in collect) // collect_e 는 반복을 못한다(foreach)
                 Console.WriteLine(item);
+
+            collect_e.MoveNext();
+            Console.WriteLine(collect_e.Current); // 30
 
             // 핵심
             // foreach(int i in c3) == for(IEnumerator<int> p = c3.GetEnumerator(); p.MoveNext;) 
+
+            // GetEnumerator() 를 호출할 때마다 새로운 반복자를 생성한다. (매우매우중요)
         }
     }
 }

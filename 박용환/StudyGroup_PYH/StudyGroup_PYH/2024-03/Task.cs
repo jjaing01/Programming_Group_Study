@@ -16,6 +16,12 @@ namespace StudyGroup_PYH._2024_03
             Thread.Sleep(5000);
         }
 
+        public static void Foo(string str)
+        {
+            Console.WriteLine($"Foo Thread Id : {Thread.CurrentThread.ManagedThreadId}");
+            Thread.Sleep(5000);
+        }
+
         public static void main()
         {
             Thread t = new Thread(Foo);
@@ -23,6 +29,8 @@ namespace StudyGroup_PYH._2024_03
 
             // 1. Task 생성
             Task tak1 = Task.Run(Foo);
+
+            Task tak2 = Task.Run(() => Foo("task Instance"));
 
             // 2. Thread vs Task
             // - Thread Instance는 무조건 스레드를 생성한다.

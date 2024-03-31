@@ -42,8 +42,10 @@ namespace StudyGroup_PYH._2024_03
             List<int> c3 = new List<int>(arr);
             LinkedList<int> c4 = new LinkedList<int>(arr);
 
+            // 4-1. 이 상태에서는 초기화가 되어 있지 않다.
+            // GetEnumerator 객체에 대한 기본 값이 들어간다.
             IEnumerator<int> e1 = c3.GetEnumerator();
-            IEnumerator<int> e2 = c4.GetEnumerator(); // 4-1. 이 상태에서는 초기화가 되어 있지 않다.
+            IEnumerator<int> e2 = c4.GetEnumerator();
 
             Console.WriteLine(e1.Current); // 0 : int 초기값
             e1.MoveNext(); // 4-2. 최초 호출 시 초기화한다.
@@ -59,7 +61,9 @@ namespace StudyGroup_PYH._2024_03
                 Console.WriteLine(e1.Current);
             }
 
-            e1.Reset(); // 4-4 다시 초기 상태로 변경한다.
+            // 4-4 다시 초기 상태로 변경한다.
+            // GetEnumerator() 상태
+            e1.Reset(); 
 
             // 5. 열거자와 foreach 원리
             // (1) 모든 열거자는 foreach를 사용해서 열거할 수 있다.

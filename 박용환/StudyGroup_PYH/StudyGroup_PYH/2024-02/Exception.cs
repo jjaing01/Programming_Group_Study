@@ -63,6 +63,10 @@ namespace StudyGroup_PYH._2024_02
                 Console.WriteLine(e.Message);
                 Console.WriteLine(e.StackTrace);
             }
+            catch
+            {
+
+            }
 
             // 2. Finally
             // - try 블록을 벗어날 때 항상 실행한다.
@@ -74,6 +78,7 @@ namespace StudyGroup_PYH._2024_02
             // C#에서는 일반적인 객체들은 Garbage Collector에 의해 자동으로 수집된다.
             // 그래서 명시적으로 자원을 해지할 필요가 없다.
             // 그런데.. 파일, 네트워크, 이벤트 등의 자원을 관리하는 객체는 Dispose() 메소드를 호출해서 명시적으로 자원을 해제
+            // 파일, 네트워크 등은 외부 리소스이기 때문에 gc에서 해제가 불가능하다.
             finally
             {
                 Console.WriteLine("프로그램 계속 실행");

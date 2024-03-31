@@ -40,9 +40,12 @@ namespace StudyGroup_PYH._2024_03
                 Console.WriteLine(i);
             }
 
-            // 2. linq를 사용
-            int[] arr2 = { 1, 2, 3, 4, 5 ,6,7,8,9,10};
 
+            // 2. linq를 사용
+            // select은 가공의 목적
+            // where는 조건의 목적
+            int[] arr2 = { 1, 2, 3, 4, 5 ,6,7,8,9,10};
+            var threes = ints.Where(x => x % 3 == 0);
 
             var temp = ints.Where(IsAdd);
              bool IsAdd(int n) => n % 2 == 1;
