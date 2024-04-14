@@ -50,7 +50,8 @@
     <None Include="240317\3_Task.cs" />
     <None Include="240317\4_Task_2.cs" />
     <None Include="240414\0_Dispose.cs" />
-    <Compile Include="240414\1_GarbageCollector.cs" />
+    <None Include="240414\1_GarbageCollector.cs" />
+    <Compile Include="240414\2_async_await.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
