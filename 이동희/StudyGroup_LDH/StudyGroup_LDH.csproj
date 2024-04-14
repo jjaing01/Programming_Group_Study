@@ -47,6 +47,7 @@
     <Compile Remove="01.Basic\event.cs" />
     <Compile Remove="01.Basic\Exception.cs" />
     <Compile Remove="01.Basic\ExtensionMethod.cs" />
+    <Compile Remove="01.Basic\GarbageCollector.cs" />
     <Compile Remove="01.Basic\generic_class.cs" />
     <Compile Remove="01.Basic\generic_constraint.cs" />
     <Compile Remove="01.Basic\Indexer.cs" />
@@ -103,6 +104,7 @@
     <None Include="01.Basic\event.cs" />
     <None Include="01.Basic\Exception.cs" />
     <None Include="01.Basic\ExtensionMethod.cs" />
+    <None Include="01.Basic\GarbageCollector.cs" />
     <None Include="01.Basic\generic_class.cs" />
     <None Include="01.Basic\generic_constraint.cs" />
     <None Include="01.Basic\Indexer.cs" />
