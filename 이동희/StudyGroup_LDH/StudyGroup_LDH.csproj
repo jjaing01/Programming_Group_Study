@@ -40,6 +40,7 @@
     <Compile Remove="01.Basic\coroutine.cs" />
     <Compile Remove="01.Basic\delegate_concept.cs" />
     <Compile Remove="01.Basic\delegate_multicast.cs" />
+    <Compile Remove="01.Basic\Dispose.cs" />
     <Compile Remove="01.Basic\ElvisOperator.cs" />
     <Compile Remove="01.Basic\Enumerator.cs" />
     <Compile Remove="01.Basic\Equality.cs" />
@@ -58,6 +59,7 @@
     <Compile Remove="01.Basic\property.cs" />
     <Compile Remove="01.Basic\ReThrow.cs" />
     <Compile Remove="01.Basic\Task.cs" />
+    <Compile Remove="01.Basic\Task_2.cs" />
     <Compile Remove="01.Basic\TestNotePad.cs" />
     <Compile Remove="01.Basic\Thread.cs" />
     <Compile Remove="01.Basic\type_basic.cs" />
@@ -94,6 +96,7 @@
     <None Include="01.Basic\coroutine.cs" />
     <None Include="01.Basic\delegate_concept.cs" />
     <None Include="01.Basic\delegate_multicast.cs" />
+    <None Include="01.Basic\Dispose.cs" />
     <None Include="01.Basic\ElvisOperator.cs" />
     <None Include="01.Basic\Enumerator.cs" />
     <None Include="01.Basic\Equality.cs" />
@@ -112,6 +115,7 @@
     <None Include="01.Basic\property.cs" />
     <None Include="01.Basic\ReThrow.cs" />
     <None Include="01.Basic\Task.cs" />
+    <None Include="01.Basic\Task_2.cs" />
     <None Include="01.Basic\TestNotePad.cs" />
     <None Include="01.Basic\Thread.cs" />
     <None Include="01.Basic\type_basic.cs" />
