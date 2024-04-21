@@ -36,6 +36,13 @@ namespace StudyGroup_HSY._240317
                     Console.WriteLine(n);
             }
 
+            var result = arr2.Where(n => n % 3 == 0);
+            foreach (int n in result)
+            {
+                Console.WriteLine(n);
+            }
+
+
             // 3. Fluent Query (Linq)
             // "o" 가 포함되어 있는 단어를 길이 순으로 정렬하고 대문자로 바꾼다.
             string[] arr3 = { "kim", "lee", "park", "choi", "robert" };
