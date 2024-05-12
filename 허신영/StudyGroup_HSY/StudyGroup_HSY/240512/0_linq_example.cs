@@ -70,7 +70,8 @@ public class Program
     private static void Problem2()
     {
         string[] words = { "apple", "banana", "grape", "orange", "watermelon" };
-        var result = words.Where(w => w.Length >= 5).Select(w => w.ToUpper());
+        var result = words.Where(n => n.Length >= 5)
+            .Select(n => n.ToUpper());
         PrintResult(result);
     }
 
@@ -85,15 +86,18 @@ public class Program
             new Student { Name = "David", Age = 22 },
             new Student { Name = "Eve", Age = 20 }
         };
-        var result = students.Average(s => s.Age);
-        Console.WriteLine($"Average Age of Students: {result}");
+
+        var result = students.Where(student => student.Age >= students.Average(s => s.Age)).ToList();
+        foreach (var res in result)
+            Console.WriteLine(res);
     }
 
     // Problem 4: Select first character of each word, remove duplicates
     private static void Problem4()
     {
         string[] words = { "apple", "banana", "orange", "avocado", "blueberry" };
-        var result = words.Select(w => w[0]).Distinct();
+        var result = words.Select(n => n[0])
+            .Distinct();
         PrintResult(result);
     }
 
@@ -119,5 +123,10 @@ public class Program
     {
         public string Name { get; set; }
         public int Age { get; set; }
+
+        public override string ToString()
+        {
+            return Name + (Age.ToString());
+        }
     }
 }
