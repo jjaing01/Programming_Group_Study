@@ -38,5 +38,4 @@ public partial class AbyssBoostSlotLevelTable
     /// </summary>
     public List<AbyssBoostSlotLevelData> list { get; set; }
 }
-}
 

@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
+﻿namespace testLinq;
 
-namespace testLinq;
-
+using System.Collections.Generic;
 /// <summary>
 /// 심연 증폭 카테고리 데이터입니다.
 /// </summary>
