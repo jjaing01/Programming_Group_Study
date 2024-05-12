@@ -27,6 +27,7 @@
     <Compile Remove="00.2023-11-26\IL00.cs" />
     <Compile Remove="01.Basic\Action_Func.cs" />
     <Compile Remove="01.Basic\array.cs" />
+    <Compile Remove="01.Basic\async_await.cs" />
     <Compile Remove="01.Basic\Basic00.cs" />
     <Compile Remove="01.Basic\Basic_IO.cs" />
     <Compile Remove="01.Basic\boxing_unboxing.cs" />
@@ -84,6 +85,7 @@
     <None Include="00.2023-11-26\IL00.cs" />
     <None Include="01.Basic\Action_Func.cs" />
     <None Include="01.Basic\array.cs" />
+    <None Include="01.Basic\async_await.cs" />
     <None Include="01.Basic\Basic00.cs" />
     <None Include="01.Basic\Basic_IO.cs" />
     <None Include="01.Basic\boxing_unboxing.cs" />
