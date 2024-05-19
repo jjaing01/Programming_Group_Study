@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -25,13 +25,47 @@
     <Compile Remove="00.2023-11-26\ctor08.cs" />
     <Compile Remove="00.2023-11-26\ctor09.cs" />
     <Compile Remove="00.2023-11-26\IL00.cs" />
+    <Compile Remove="01.Basic\Action_Func.cs" />
+    <Compile Remove="01.Basic\array.cs" />
+    <Compile Remove="01.Basic\async_await.cs" />
     <Compile Remove="01.Basic\Basic00.cs" />
     <Compile Remove="01.Basic\Basic_IO.cs" />
+    <Compile Remove="01.Basic\boxing_unboxing.cs" />
+    <Compile Remove="01.Basic\boxing_unboxing2.cs" />
+    <Compile Remove="01.Basic\CallBy.cs" />
+    <Compile Remove="01.Basic\CallBy2.cs" />
+    <Compile Remove="01.Basic\casting.cs" />
     <Compile Remove="01.Basic\ClassBasic.cs" />
     <Compile Remove="01.Basic\ClassNewMethod.cs" />
+    <Compile Remove="01.Basic\collection_interface.cs" />
+    <Compile Remove="01.Basic\coroutine.cs" />
+    <Compile Remove="01.Basic\delegate_concept.cs" />
+    <Compile Remove="01.Basic\delegate_multicast.cs" />
+    <Compile Remove="01.Basic\Dispose.cs" />
+    <Compile Remove="01.Basic\ElvisOperator.cs" />
+    <Compile Remove="01.Basic\Enumerator.cs" />
     <Compile Remove="01.Basic\Equality.cs" />
+    <Compile Remove="01.Basic\event.cs" />
+    <Compile Remove="01.Basic\Exception.cs" />
+    <Compile Remove="01.Basic\ExtensionMethod.cs" />
+    <Compile Remove="01.Basic\GarbageCollector.cs" />
+    <Compile Remove="01.Basic\generic_class.cs" />
+    <Compile Remove="01.Basic\generic_constraint.cs" />
+    <Compile Remove="01.Basic\Indexer.cs" />
     <Compile Remove="01.Basic\Interface.cs" />
+    <Compile Remove="01.Basic\linq%28concept%29.cs" />
+    <Compile Remove="01.Basic\LinqProcess.cs" />
+    <Compile Remove="01.Basic\MyEnumerator.cs" />
+    <Compile Remove="01.Basic\named_Optional_Parameter.cs" />
+    <Compile Remove="01.Basic\Nullable.cs" />
+    <Compile Remove="01.Basic\property.cs" />
+    <Compile Remove="01.Basic\ReThrow.cs" />
+    <Compile Remove="01.Basic\Task.cs" />
+    <Compile Remove="01.Basic\Task_2.cs" />
+    <Compile Remove="01.Basic\TestNotePad.cs" />
+    <Compile Remove="01.Basic\Thread.cs" />
     <Compile Remove="01.Basic\type_basic.cs" />
+    <Compile Remove="01.Basic\Using.cs" />
     <Compile Remove="01.Basic\valueAndReference.cs" />
     <Compile Remove="01.Basic\valueAndReference2.cs" />
     <Compile Remove="Program.cs" />
@@ -49,13 +83,47 @@
     <None Include="00.2023-11-26\ctor08.cs" />
     <None Include="00.2023-11-26\ctor09.cs" />
     <None Include="00.2023-11-26\IL00.cs" />
+    <None Include="01.Basic\Action_Func.cs" />
+    <None Include="01.Basic\array.cs" />
+    <None Include="01.Basic\async_await.cs" />
     <None Include="01.Basic\Basic00.cs" />
     <None Include="01.Basic\Basic_IO.cs" />
+    <None Include="01.Basic\boxing_unboxing.cs" />
+    <None Include="01.Basic\boxing_unboxing2.cs" />
+    <None Include="01.Basic\CallBy.cs" />
+    <None Include="01.Basic\CallBy2.cs" />
+    <None Include="01.Basic\casting.cs" />
     <None Include="01.Basic\ClassBasic.cs" />
     <None Include="01.Basic\ClassNewMethod.cs" />
+    <None Include="01.Basic\collection_interface.cs" />
+    <None Include="01.Basic\coroutine.cs" />
+    <None Include="01.Basic\delegate_concept.cs" />
+    <None Include="01.Basic\delegate_multicast.cs" />
+    <None Include="01.Basic\Dispose.cs" />
+    <None Include="01.Basic\ElvisOperator.cs" />
+    <None Include="01.Basic\Enumerator.cs" />
     <None Include="01.Basic\Equality.cs" />
+    <None Include="01.Basic\event.cs" />
+    <None Include="01.Basic\Exception.cs" />
+    <None Include="01.Basic\ExtensionMethod.cs" />
+    <None Include="01.Basic\GarbageCollector.cs" />
+    <None Include="01.Basic\generic_class.cs" />
+    <None Include="01.Basic\generic_constraint.cs" />
+    <None Include="01.Basic\Indexer.cs" />
     <None Include="01.Basic\Interface.cs" />
+    <None Include="01.Basic\linq(concept).cs" />
+    <None Include="01.Basic\LinqProcess.cs" />
+    <None Include="01.Basic\MyEnumerator.cs" />
+    <None Include="01.Basic\named_Optional_Parameter.cs" />
+    <None Include="01.Basic\Nullable.cs" />
+    <None Include="01.Basic\property.cs" />
+    <None Include="01.Basic\ReThrow.cs" />
+    <None Include="01.Basic\Task.cs" />
+    <None Include="01.Basic\Task_2.cs" />
+    <None Include="01.Basic\TestNotePad.cs" />
+    <None Include="01.Basic\Thread.cs" />
     <None Include="01.Basic\type_basic.cs" />
+    <None Include="01.Basic\Using.cs" />
     <None Include="01.Basic\valueAndReference.cs" />
     <None Include="01.Basic\valueAndReference2.cs" />
     <None Include="Program.cs" />

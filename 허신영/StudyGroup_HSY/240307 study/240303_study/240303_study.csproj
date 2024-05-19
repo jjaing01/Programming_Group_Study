@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D558F420-04BD-400C-9355-C21B7D27368B}</ProjectGuid>
+    <ProjectGuid>{06F11621-9EAB-4411-BFD6-E34BA0CA968E}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>StudyGroup_HSY</RootNamespace>
-    <AssemblyName>StudyGroup_HSY</AssemblyName>
+    <RootNamespace>_240303_study</RootNamespace>
+    <AssemblyName>240303_study</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,32 +33,31 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Program.cs" />
-    <None Include="240317\1_LinqProcess.cs" />
-    <None Include="240317\0_linq%28concept%29.cs" />
-    <None Include="240317\2_Thread.cs" />
-    <None Include="240317\3_Task.cs" />
-    <None Include="240317\4_Task_2.cs" />
-    <None Include="240414\0_Dispose.cs" />
-    <None Include="240414\1_GarbageCollector.cs" />
-    <None Include="240414\2_async_await.cs" />
-    <None Include="240421\0_adapter_pattern.cs" />
-    <Compile Include="240512\0_linq_example.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Exception.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReThrow.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Using.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="collection_interface.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Enumerator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MyEnumerator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="coroutine.cs" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

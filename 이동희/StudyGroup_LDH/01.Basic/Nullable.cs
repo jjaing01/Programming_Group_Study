@@ -10,8 +10,15 @@ namespace StudyGroup_LDH._01.Basic
     {
         public static void Main()
         {
-            string s1 = "Hello";
-            string s2 = null;
+            int x = 100;
+            object obj = new();
+
+            obj = x;
+
+            obj = 101;
+
+            Console.WriteLine(obj);
+            Console.WriteLine(x);
 
         }
     }
