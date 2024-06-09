@@ -53,7 +53,14 @@
     <None Include="240414\1_GarbageCollector.cs" />
     <None Include="240414\2_async_await.cs" />
     <None Include="240421\0_adapter_pattern.cs" />
-    <Compile Include="240512\0_linq_example.cs" />
+    <None Include="240512\0_linq_example.cs" />
+    <Compile Include="240512 LINQ\AbyssBoostCategoryTable.cs" />
+    <Compile Include="240512 LINQ\AbyssBoostCategoryTier.cs" />
+    <Compile Include="240512 LINQ\AbyssBoostSlotLevelTable.cs" />
+    <Compile Include="240512 LINQ\AbyssBoostSlotTable.cs" />
+    <Compile Include="240512 LINQ\AbyssLevelTable.cs" />
+    <Compile Include="240512 LINQ\ClassType.cs" />
+    <Compile Include="240512 LINQ\Master.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
