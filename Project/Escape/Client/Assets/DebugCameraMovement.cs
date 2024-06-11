@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FreeViewCamera : MonoBehaviour
+public class DebugCameraMovement : MonoBehaviour
 {
     public float moveSpeed = 10.0f; // Speed of camera movement
     public float lookSpeed = 2.0f; // Speed of camera rotation
