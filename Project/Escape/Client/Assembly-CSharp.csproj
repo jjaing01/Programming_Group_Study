@@ -64,6 +64,7 @@
     <Compile Include="Assets\DebugCameraMovement.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\CameraSwitcher.cs" />
+    <Compile Include="Assets\EchoServerConnection.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
