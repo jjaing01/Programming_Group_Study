@@ -20,6 +20,9 @@ public class DebugCameraMovement : MonoBehaviour
 
     void Update()
     {
+        if (false == enabled)
+            return;
+
         // Get mouse input for rotation
         rotationX += Input.GetAxis("Mouse X") * lookSpeed;
         rotationY -= Input.GetAxis("Mouse Y") * lookSpeed;

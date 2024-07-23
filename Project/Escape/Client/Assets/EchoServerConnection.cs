@@ -8,14 +8,13 @@ using UnityEngine;
 
 public class EchoServerConnection : MonoBehaviour
 {
-    public TcpClient client;
+    private TcpClient client;
+    private string serverIp = "127.0.0.1";
+    private int serverPort = 13000;
 
     // Start is called before the first frame update
     void Start()
     {
-        string serverIp = "127.0.0.1";
-        int serverPort = 13000;
-
         client = new TcpClient(serverIp, serverPort);
     }
 
@@ -35,13 +34,6 @@ public class EchoServerConnection : MonoBehaviour
                     while (true)
                     {
                         var message = "Hi";
-
-                        //var message = Console.ReadLine();
-                        //if (message.ToLower() == "exit")
-                        //{
-                        //    break;
-                        //}
-
                         var request = Encoding.ASCII.GetBytes(message);
                         stream.Write(request, 0, request.Length);
 
@@ -53,6 +45,10 @@ public class EchoServerConnection : MonoBehaviour
 
                     }
                 }
+            }
+            else
+            {
+                // client = new TcpClient(serverIp, serverPort);
             }
         }
         catch (Exception ex)
