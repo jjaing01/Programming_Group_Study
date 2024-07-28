@@ -215,7 +215,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 154899147}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f613fc062a649e4cb1a47b397182735, type: 3}
+  m_Script: {fileID: 11500000, guid: 9bf7eef149a6542468e90fe6bf0a1777, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
@@ -229,10 +229,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 964320757}
     m_Modifications:
+    - target: {fileID: -5016911025115762780, guid: 06e454d7faae73b4191f7f4a23361e6f,
+        type: 3}
+      propertyPath: prefabMonster
+      value: 
+      objectReference: {fileID: 1669585807177229790, guid: c68bb2a13cfd97b47afe21df1bed5e7e,
+        type: 3}
     - target: {fileID: 2441103922544305471, guid: 06e454d7faae73b4191f7f4a23361e6f,
         type: 3}
       propertyPath: m_Name
-      value: MonsterSpawner
+      value: Monster Spawner
       objectReference: {fileID: 0}
     - target: {fileID: 5857872628357840424, guid: 06e454d7faae73b4191f7f4a23361e6f,
         type: 3}
@@ -491,7 +497,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2f6cbf85ad255d40bd8ac6355e665ab, type: 3}
+  m_Script: {fileID: 11500000, guid: dd0f07fc6fc821f4db398bf86b44efdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
@@ -521,12 +527,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 964320755}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1151e8ccabfd1e4c9fee265f9fa5cb7, type: 3}
+  m_Script: {fileID: 11500000, guid: 2020ecbc5ead55e43b666d66900097fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 964320757}
-  monsterSpawner: {fileID: 2441103922544305471, guid: d1781fa8a90bb7c408d9bc50813a856d,
-    type: 3}
 --- !u!4 &964320757
 Transform:
   m_ObjectHideFlags: 0
@@ -540,6 +543,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2098035615}
   - {fileID: 664671348}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -569,7 +573,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2098035613}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82928aec126b26c43b15b92a53d7df45, type: 3}
+  m_Script: {fileID: 11500000, guid: 13ef82f720948f04ebbb9ad8bda3ffc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 963194227}
@@ -582,12 +586,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2098035613}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 964320757}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -596,5 +600,4 @@ SceneRoots:
   - {fileID: 964320757}
   - {fileID: 963194228}
   - {fileID: 154899151}
-  - {fileID: 2098035615}
   - {fileID: 705507995}
