@@ -221,6 +221,24 @@ MonoBehaviour:
   moveSpeed: 10
   lookSpeed: 2
   maxLookAngle: 85
+--- !u!1 &487592178
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 2441103922544305471, guid: 06e454d7faae73b4191f7f4a23361e6f,
+    type: 3}
+  m_PrefabInstance: {fileID: 664671347}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 664671348}
+  - component: {fileID: 664671349}
+  m_Layer: 0
+  m_Name: Monster Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1001 &664671347
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -295,12 +313,38 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06e454d7faae73b4191f7f4a23361e6f, type: 3}
---- !u!4 &664671348 stripped
+--- !u!4 &664671348
 Transform:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 5857872628357840424, guid: 06e454d7faae73b4191f7f4a23361e6f,
     type: 3}
   m_PrefabInstance: {fileID: 664671347}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 487592178}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 964320757}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &664671349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: -5016911025115762780, guid: 06e454d7faae73b4191f7f4a23361e6f,
+    type: 3}
+  m_PrefabInstance: {fileID: 664671347}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 487592178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87652c41049205840bd6bcb536c5dd35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabMonster: {fileID: 1669585807177229790, guid: c68bb2a13cfd97b47afe21df1bed5e7e,
+    type: 3}
+  spawnTick: 1
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -598,6 +642,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 964320757}
+  - {fileID: 705507995}
   - {fileID: 963194228}
   - {fileID: 154899151}
-  - {fileID: 705507995}
