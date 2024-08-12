@@ -10,16 +10,24 @@ public class MonsterMovement : MonoBehaviour
     void Start()
     {
         nmAgent = GetComponent<NavMeshAgent>();
-       // nmAgent.destination = goal.position;
+
+        goalPoint = GameObject.Find("Patrol Point RB");
+        if (goalPoint)
+        {
+            nmAgent.destination = goalPoint.transform.position;
+        }
+        else
+        {
+            nmAgent.destination = new Vector3(0, 0, 0);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        nmAgent.SetDestination(new Vector3(9, 0, 0));
+        nmAgent.SetDestination(nmAgent.destination);
     }
 
     NavMeshAgent nmAgent;
-    public Transform goal;
-    public GameObject goalPoint;
+    private GameObject goalPoint;
 }

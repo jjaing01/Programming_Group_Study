@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goal: {fileID: 0}
-  goalPoint: {fileID: 1669585807177229790}
+  goalPoint: {fileID: 0}
 --- !u!195 &8058433558617995090
 NavMeshAgent:
   m_ObjectHideFlags: 0
