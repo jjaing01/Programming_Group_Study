@@ -23,7 +23,7 @@ public class SpawnMonster : MonoBehaviour
 
     void SpawMonster()
     {
-        Instantiate(prefabMonster, new Vector3(0, 0, 0), new Quaternion());
+        Instantiate(prefabMonster, new Vector3(-9, 0, 9), new Quaternion());
     }
 
     public GameObject prefabMonster;

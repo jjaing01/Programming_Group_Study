@@ -1,21 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+using static UnityEngine.GraphicsBuffer;
 
 public class MonsterMovement : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        
+        nmAgent = GetComponent<NavMeshAgent>();
+       // nmAgent.destination = goal.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 direction = new Vector3(0, 0, -1.0f);
-        transform.Translate(direction * moveSpeed * Time.deltaTime, Space.World);
+        nmAgent.SetDestination(new Vector3(9, 0, 0));
     }
 
-    public float moveSpeed = 10.0f;
+    NavMeshAgent nmAgent;
+    public Transform goal;
+    public GameObject goalPoint;
 }
