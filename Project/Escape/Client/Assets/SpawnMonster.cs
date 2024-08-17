@@ -23,10 +23,15 @@ public class SpawnMonster : MonoBehaviour
 
     void SpawMonster()
     {
-        Instantiate(prefabMonster, new Vector3(-9, 0, 9), new Quaternion());
+        var spawnPoint = GameObject.Find("Patrol Point LT");
+        if (spawnPoint && layerMonster)
+        {
+            Instantiate(prefabMonster, spawnPoint.transform.position, new Quaternion(), layerMonster.transform);
+        }
     }
 
     public GameObject prefabMonster;
+    public GameObject layerMonster;
     public float spawnTick = 1.0f;
     private float timer;
 }

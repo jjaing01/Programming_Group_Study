@@ -9,25 +9,71 @@ public class MonsterMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        nmAgent = GetComponent<NavMeshAgent>();
-
-        goalPoint = GameObject.Find("Patrol Point RB");
-        if (goalPoint)
-        {
-            nmAgent.destination = goalPoint.transform.position;
-        }
-        else
-        {
-            nmAgent.destination = new Vector3(0, 0, 0);
-        }
+        Init();
     }
 
     // Update is called once per frame
     void Update()
     {
-        nmAgent.SetDestination(nmAgent.destination);
+        bool isMoveNext = (false == navMeshAgent.pathPending)
+            && (navMeshAgent.remainingDistance <= RemainingDistanceForNext);
+
+        if (isMoveNext)
+        {
+            MoveNextPatrolPoint();
+        }
     }
 
-    NavMeshAgent nmAgent;
-    private GameObject goalPoint;
+    void Init()
+    {
+        navMeshAgent = GetComponent<NavMeshAgent>();
+
+        patrolPoints = new List<GameObject>();
+        GameObject patrolPoint = null;
+
+        patrolPoint = GameObject.Find("Patrol Point LT");
+        patrolPoints.Add(patrolPoint);
+        patrolPoint = GameObject.Find("Patrol Point LB");
+        patrolPoints.Add(patrolPoint);
+        patrolPoint = GameObject.Find("Patrol Point RB");
+        patrolPoints.Add(patrolPoint);
+        patrolPoint = GameObject.Find("Patrol Point RT");
+        patrolPoints.Add(patrolPoint);
+
+        curPatrolPoint = 1;
+        UpdatePatrolPoint(curPatrolPoint);
+    }
+
+    void UpdatePatrolPoint(int index)
+    {
+        if (patrolPoints is null || patrolPoints.Count == 0)
+        {
+            return;
+        }
+
+        if (patrolPoints[index])
+        {
+            navMeshAgent.destination = patrolPoints[index].transform.position;
+        }
+        else
+        {
+            navMeshAgent.destination = new Vector3();
+        }
+    }
+
+    void MoveNextPatrolPoint()
+    {
+        ++curPatrolPoint;
+        if (curPatrolPoint >= patrolPoints.Count)
+        {
+            curPatrolPoint = 0;
+        }
+
+        UpdatePatrolPoint(curPatrolPoint);
+    }
+
+    private NavMeshAgent navMeshAgent;
+    private List<GameObject> patrolPoints;
+    private int curPatrolPoint;
+    private const float RemainingDistanceForNext = 1.5f;
 }

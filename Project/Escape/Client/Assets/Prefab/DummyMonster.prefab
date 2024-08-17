@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 473344283489703623}
   - component: {fileID: 681332687076759546}
   - component: {fileID: 1785708995374144174}
-  - component: {fileID: -8431537733330104020}
   - component: {fileID: 8058433558617995090}
+  - component: {fileID: -8431537733330104020}
+  - component: {fileID: 2929005095358108050}
   m_Layer: 0
   m_Name: DummyMonster
   m_TagString: Untagged
@@ -64,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 15303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 36881f0626b5c1e4f8e4da34fdff262b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -107,6 +108,28 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!195 &8058433558617995090
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669585807177229790}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.1
+  m_Speed: 5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 2
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 0
+  m_AutoRepath: 0
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 1
+  m_ObstacleAvoidanceType: 4
 --- !u!114 &-8431537733330104020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,27 +142,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9b6e57af9fa6564f99d1e6c7b9c65ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goal: {fileID: 0}
-  goalPoint: {fileID: 0}
---- !u!195 &8058433558617995090
-NavMeshAgent:
+--- !u!114 &2929005095358108050
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1669585807177229790}
   m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 2
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 0
-  m_AutoRepath: 0
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 1
-  m_ObstacleAvoidanceType: 4
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3850d6ec7c0d464a88d4ed677888324, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 30
