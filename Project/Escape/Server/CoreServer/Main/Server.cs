@@ -11,6 +11,10 @@ public class Server
     {
         Console.WriteLine("Server Launch Start!!");
 
+        // Todo 박용환 
+        // 현재 테스트용으로 추후 작업 완료되면 별도로 관리 필요
+        // var StunServer = new StunServer();
+
         // TODO 이동희
         // IP는 뭐 나중에 AWS 서버 생성 후 세팅
         // PORT는 팀원들과 논의
