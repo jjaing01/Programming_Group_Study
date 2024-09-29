@@ -63,6 +63,7 @@
     <Compile Include="Assets\MainCameraMovement.cs" />
     <Compile Include="Assets\CameraSwitcher.cs" />
     <Compile Include="Assets\EchoServerConnection.cs" />
+    <Compile Include="Assets\MonsterLifeTime.cs" />
     <Compile Include="Assets\GameCore.cs" />
     <Compile Include="Assets\DebugCameraMovement.cs" />
     <Compile Include="Assets\MonsterMovement.cs" />
