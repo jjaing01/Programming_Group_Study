@@ -45,7 +45,6 @@ public class EchoServer
             {
                 // InvalidOperationException, SocketException 같은 것이 발생할 수 있으므로 Catch 문도 섞어보자
                 Console.WriteLine($"Exception: {e.Message}");
-
             }
         }
     }
