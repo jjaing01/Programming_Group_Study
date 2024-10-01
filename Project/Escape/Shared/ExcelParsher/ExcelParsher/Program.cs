@@ -26,15 +26,18 @@ namespace ExcelParsher
                 {
                     // 엑셀 파일의 Workbook 로드
                     IWorkbook workbook = new XSSFWorkbook(fileStream);  // XSSFWorkbook은 .xlsx 형식 지원
-                    ISheet sheet = workbook.GetSheetAt(0);  // 첫 번째 시트 가져오기
+                    var sheetCnt = workbook.NumberOfSheets;
+                    for (var i = 0; i < sheetCnt; ++i)
+                    {
+                        ISheet sheet = workbook.GetSheetAt(i);  // 첫 번째 시트 가져오기
 
-                    // 데이터 타입 파싱
-                    TableCommonInfo info = new TableCommonInfo();
-                    info.dataTypes = makeDataLits(sheet, Constants.DataTypeRow);
-                    info.dataNames = makeDataLits(sheet, Constants.DataNameRow);
+                        // 데이터 타입 파싱
+                        TableCommonInfo info = new TableCommonInfo();
+                        info.dataTypes = makeDataLits(sheet, Constants.DataTypeRow);
+                        info.dataNames = makeDataLits(sheet, Constants.DataNameRow);
 
-                    var fileName = Path.GetFileNameWithoutExtension(File.Name);
-                    tableCommonInfos.Add(fileName, info);
+                        var fileName = Path.GetFileNameWithoutExtension(File.Name);
+                        tableCommonInfos.Add(fileName, info);
 
                     //// 첫 번째 행 (헤더) 건너뛰기 위해 1부터 시작
                     //for (int row = 2; row <= sheet.LastRowNum; row++)
@@ -54,6 +57,7 @@ namespace ExcelParsher
                     //    // 데이터를 출력
                     //    Console.WriteLine($"ID: {monsterId}, Name: {monsterName}, HP: {hp}, MP: {mp}, Attack: {attack}, Attack Speed: {attackSpeed}, Speed: {speed}, Image Path: {imagePath}");
                     //}
+                    }
                 }
             }
         }
