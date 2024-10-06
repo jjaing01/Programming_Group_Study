@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExcelParsher
 {
-    class TableCommonInfo
+    class ExcelSheetInfo
     {
         public List<string> dataTypes;
         public List<string> dataNames;

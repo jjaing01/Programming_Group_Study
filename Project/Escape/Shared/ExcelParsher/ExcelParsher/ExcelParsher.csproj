@@ -118,9 +118,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
+    <Compile Include="ExcelParsherAdapter.cs" />
+    <Compile Include="NPOIAdapter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TableCommonInfo.cs" />
+    <Compile Include="ExcelSheetInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
