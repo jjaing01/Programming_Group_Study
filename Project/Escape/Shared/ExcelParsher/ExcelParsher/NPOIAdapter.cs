@@ -12,14 +12,14 @@ using NPOI.XSSF.UserModel; // for .xlsx files
 
 namespace ExcelParsher
 {
-    internal class NPOIAdapter : ExcelParsherAdapter
+    internal class NPOIAdapter : ExcelAdapter
     {
+        private Dictionary<string, IWorkbook> workbooks;
+
         public NPOIAdapter()
         {
             workbooks = new Dictionary<string, IWorkbook>();
         }
-
-        private Dictionary<string, IWorkbook> workbooks;
 
         public override void LoadExcel(FileStream fileStream)
         {
@@ -47,10 +47,13 @@ namespace ExcelParsher
 
                     // 데이터 타입 파싱
                     var info = new ExcelSheetInfo();
+                    
+                    info.sheetName = sheet.SheetName;
+                    info.validRowIndex = sheet.LastRowNum;
                     info.dataNames = MakeDataLits(sheet, Constants.DataNameRow);
                     info.dataTypes = MakeDataLits(sheet, Constants.DataTypeRow);
 
-                    string keyName = workbook.Key + sheet.SheetName;
+                    string keyName = workbook.Key + @"+" + sheet.SheetName;
                     AddSheetInfo(keyName, info);
 
                     //// 첫 번째 행 (헤더) 건너뛰기 위해 1부터 시작

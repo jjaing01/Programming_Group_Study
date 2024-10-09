@@ -118,7 +118,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
-    <Compile Include="ExcelParsherAdapter.cs" />
+    <Compile Include="ExcelAdapter.cs" />
     <Compile Include="NPOIAdapter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
