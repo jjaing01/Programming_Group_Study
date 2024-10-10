@@ -10,10 +10,13 @@ namespace ExcelParsher
         static void Main(string[] args)
         {
             var dirInfo = new DirectoryInfo(Constants.TableDirPath);
-            NPOIAdapter excelParsher = new NPOIAdapter();
+            NPOIAdapter excelParsher = NPOIAdapter.GetInstance();
 
             foreach (var File in dirInfo.GetFiles())
             {
+                if (File.Extension != ".xlsx")
+                    continue;
+
                 string relativePath = Constants.TableDirPath + @"\" + File.Name;
                 var filePath = Path.GetFullPath(relativePath);
 

@@ -16,7 +16,22 @@ namespace ExcelParsher
     {
         private Dictionary<string, IWorkbook> workbooks;
 
-        public NPOIAdapter()
+        private static NPOIAdapter instance = null;
+        private static readonly object _lock = new object();
+        public static NPOIAdapter GetInstance()
+        {
+            if (instance is null)
+            {
+                lock(_lock)
+                {
+                    instance = new NPOIAdapter();
+                }
+            }
+
+            return instance;
+        }
+
+        private NPOIAdapter()
         {
             workbooks = new Dictionary<string, IWorkbook>();
         }
