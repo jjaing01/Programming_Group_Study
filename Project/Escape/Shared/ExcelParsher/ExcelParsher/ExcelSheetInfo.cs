@@ -12,10 +12,5 @@ namespace ExcelParsher
         public int validRowIndex;
         public List<string> dataTypes;
         public List<string> dataNames;
-
-        public void MakeDataTableFile()
-        {
-
-        }
     }
 }

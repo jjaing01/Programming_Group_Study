@@ -19,7 +19,6 @@ namespace ExcelParsher
 
         public virtual void LoadExcel(FileStream fileStream) { }
         public virtual void UpdateExcelSheetInfos() { }
-
         public void AddSheetInfo(string key, ExcelSheetInfo value)
         {
             if (sheetInfos.ContainsKey(key))
@@ -29,7 +28,6 @@ namespace ExcelParsher
             }
 
             sheetInfos.Add(key, value);
-            value.MakeDataTableFile();
         }
     }
 }

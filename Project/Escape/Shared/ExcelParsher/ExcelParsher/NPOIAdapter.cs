@@ -55,6 +55,7 @@ namespace ExcelParsher
 
                     string keyName = workbook.Key + @"+" + sheet.SheetName;
                     AddSheetInfo(keyName, info);
+                    MakeDataTableFile(workbook.Key + sheet.SheetName);
 
                     //// 첫 번째 행 (헤더) 건너뛰기 위해 1부터 시작
                     //for (int row = 2; row <= sheet.LastRowNum; row++)
@@ -97,6 +98,12 @@ namespace ExcelParsher
             }
 
             return types;
+        }
+
+        private void MakeDataTableFile(string fileName)
+        {
+            string path = Constants.TableDirPath + @"\" + fileName + @".cs";
+            File.WriteAllText(path, "test file");
         }
     }
 }
