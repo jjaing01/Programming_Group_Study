@@ -25,28 +25,66 @@ namespace ExcelParsher
             return instance;
         }
 
-        public void MakeDataTableFile(string fileName)
+        public void MakeDataTableFile(string fileName, string sheetName, ExcelSheetInfo sheetInfo)
         {
             string path = Constants.TableDirPath + @"\" + fileName + @".cs";
             string contents = "";
 
             contents = WriteUsing(contents);
+            contents = WriteNameSpaceBegin(contents, path, fileName);
+            contents = WriteClassBegin(contents, sheetName + "Data");
 
+            contents = WriteClassEnd(contents);
+
+            contents = WriteNameSpaceEnd(contents);
             File.WriteAllText(path, contents);
         }
 
-        public string WriteUsing(string contents)
+        private string WriteUsing(string contents)
         {
-            string output = "";
+            contents +=
+                "using System;\n" +
+                "using System.Collections.Generic;\n" +
+                "using System.Linq;\n" +
+                "using System.Text;\n" +
+                "using System.Threading.Tasks;\n" +
+                "using System.IO;\n" +
+                "\n";
 
-            output += "using System;\n";
-            output += "using System.Collections.Generic;\n";
-            output += "using System.Linq;\n";
-            output += "using System.Text;\n";
-            output += "using System.Threading.Tasks;\n";
-            output += "using System.IO;\n";
+            return contents;
+        }
 
-            return contents + output;
+        private string WriteNameSpaceBegin(string contents, string path, string fileName)
+        {
+            var directoryName = Path.GetDirectoryName(path);
+            var folderName = Path.GetFileName(directoryName);
+
+            contents +=
+                "namespace " + folderName + "." + fileName + "\n" +
+                "{\n";
+
+            return contents;
+        }
+
+        private string WriteNameSpaceEnd(string contents)
+        {
+            contents += "\n}\n";
+            return contents;
+        }
+
+        private string WriteClassBegin(string contents, string className)
+        {
+            contents +=
+                "\t" + "public class " + className + "\n" +
+                "\t" + "{\n";
+
+            return contents;
+        }
+
+        private string WriteClassEnd(string contents)
+        {
+            contents += "\n\t}";
+            return contents;
         }
     }
 }

@@ -68,9 +68,11 @@ namespace ExcelParsher
                     info.dataNames = MakeDataLits(sheet, Constants.DataNameRow);
                     info.dataTypes = MakeDataLits(sheet, Constants.DataTypeRow);
 
-                    string keyName = workbook.Key + @"+" + sheet.SheetName;
+                    var keyName = workbook.Key + @"+" + sheet.SheetName;
                     AddSheetInfo(keyName, info);
-                    CSFileGenerator.GetInstance().MakeDataTableFile(workbook.Key + sheet.SheetName);
+
+                    var csFileName = workbook.Key + sheet.SheetName;
+                    CSFileGenerator.GetInstance().MakeDataTableFile(csFileName, sheet.SheetName, info);
 
                     //// 첫 번째 행 (헤더) 건너뛰기 위해 1부터 시작
                     //for (int row = 2; row <= sheet.LastRowNum; row++)
