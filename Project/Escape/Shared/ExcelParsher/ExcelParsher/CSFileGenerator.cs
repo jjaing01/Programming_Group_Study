@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Diagnostics;
 
 namespace ExcelParsher
 {
@@ -25,15 +26,20 @@ namespace ExcelParsher
             return instance;
         }
 
-        public void MakeDataTableFile(string fileName, string sheetName, ExcelSheetInfo sheetInfo)
+        public void MakeDataTableFile(string fileName, ExcelSheetInfo sheetInfo)
         {
             string path = Constants.TableDirPath + @"\" + fileName + @".cs";
             string contents = "";
 
             contents = WriteUsing(contents);
             contents = WriteNameSpaceBegin(contents, path, fileName);
-            contents = WriteClassBegin(contents, sheetName + "Data");
 
+            contents = WriteClassBegin(contents, sheetInfo.sheetName + "Data");
+            contents = WriteDataClassProperties(contents, sheetInfo);
+            contents = WriteClassEnd(contents);
+            contents += "\n\n";
+            contents = WriteClassBegin(contents, sheetInfo.sheetName + "Table");
+            contents = WriteTableClassProperties(contents, sheetInfo);
             contents = WriteClassEnd(contents);
 
             contents = WriteNameSpaceEnd(contents);
@@ -77,6 +83,52 @@ namespace ExcelParsher
             contents +=
                 "\t" + "public class " + className + "\n" +
                 "\t" + "{\n";
+
+            return contents;
+        }
+
+        private string WriteDataClassProperties(string contents, ExcelSheetInfo sheetInfo)
+        {
+            if (sheetInfo.dataTypes.Count != sheetInfo.dataNames.Count)
+            {
+                Debug.Assert(sheetInfo.dataTypes.Count != sheetInfo.dataNames.Count, "miss match data type and name count");
+                return contents;
+            }
+
+            for (int i = 0; i < sheetInfo.dataTypes.Count; ++i)
+            {
+                if (string.IsNullOrEmpty(sheetInfo.dataNames[i]))
+                    continue;
+
+                var noneBlankDataName = sheetInfo.dataNames[i].Replace(" ", "");
+                var dataName = char.ToUpper(noneBlankDataName[0]) + noneBlankDataName.Substring(1).ToLower();
+
+                contents +=
+                    "\t\t" + "public " + sheetInfo.dataTypes[i] + " " + dataName + " { get; set; }\n";
+            }
+
+            return contents;
+        }
+
+        private string WriteTableClassProperties(string contents, ExcelSheetInfo sheetInfo)
+        {
+            if (sheetInfo.dataTypes.Count != sheetInfo.dataNames.Count)
+            {
+                Debug.Assert(sheetInfo.dataTypes.Count != sheetInfo.dataNames.Count, "miss match data type and name count");
+                return contents;
+            }
+
+            string result = sheetInfo.dataNames.Find(name => name.Equals("uid", StringComparison.OrdinalIgnoreCase));
+            if (result is null)
+            {
+                contents +=
+                    "\t\t" + "public List<" + sheetInfo.sheetName + "Data> " + sheetInfo.sheetName + "Table " + " { get; set; }\n";
+            }
+            else
+            {
+                contents +=
+                    "\t\t" + "public Dictionary<int, " + sheetInfo.sheetName + "Data> " + sheetInfo.sheetName + "Table " + " { get; set; }\n";
+            }
 
             return contents;
         }
