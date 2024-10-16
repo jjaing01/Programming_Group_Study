@@ -14,7 +14,7 @@ namespace ExcelDataTable.MonsterInfoTableBossMonster
 
 	public class BossMonsterTable
 	{
-		public List<BossMonsterData> BossMonsterTable  { get; set; }
+		public List<BossMonsterData> DataTable  { get; set; }
 
 	}
 }

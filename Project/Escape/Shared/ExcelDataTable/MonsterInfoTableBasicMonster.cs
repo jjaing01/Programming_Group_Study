@@ -28,7 +28,7 @@ namespace ExcelDataTable.MonsterInfoTableBasicMonster
 
 	public class BasicMonsterTable
 	{
-		public List<BasicMonsterData> BasicMonsterTable  { get; set; }
+		public List<BasicMonsterData> DataTable  { get; set; }
 
 	}
 }

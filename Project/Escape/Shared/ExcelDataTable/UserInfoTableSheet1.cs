@@ -18,7 +18,7 @@ namespace ExcelDataTable.UserInfoTableSheet1
 
 	public class Sheet1Table
 	{
-		public List<Sheet1Data> Sheet1Table  { get; set; }
+		public List<Sheet1Data> DataTable  { get; set; }
 
 	}
 }

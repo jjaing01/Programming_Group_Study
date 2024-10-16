@@ -122,12 +122,12 @@ namespace ExcelParsher
             if (result is null)
             {
                 contents +=
-                    "\t\t" + "public List<" + sheetInfo.sheetName + "Data> " + sheetInfo.sheetName + "Table " + " { get; set; }\n";
+                    "\t\t" + "public List<" + sheetInfo.sheetName + "Data> " + "DataTable " + " { get; set; }\n";
             }
             else
             {
                 contents +=
-                    "\t\t" + "public Dictionary<int, " + sheetInfo.sheetName + "Data> " + sheetInfo.sheetName + "Table " + " { get; set; }\n";
+                    "\t\t" + "public Dictionary<int, " + sheetInfo.sheetName + "Data> " + "DataTable " + " { get; set; }\n";
             }
 
             return contents;
