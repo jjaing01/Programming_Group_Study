@@ -63,5 +63,34 @@ namespace ExcelDataTable.MonsterInfoTableBossMonster
 			return true;
 		}
 
+		public BossMonsterData LoadSheetData(int rowIndex)
+		{
+			if (rowIndex < SheetRowBegin || rowIndex >= SheetRowEnd)
+				return null;
+
+			var excelAdapter = NPOIAdapter.GetInstance();
+			var sheet = excelAdapter.GetExcelSheet(ExcelFileName, ExcelSheetIndex);
+			if (sheet is null)
+				return null;
+
+			var row = sheet.GetRow(rowIndex);
+			if (null != row)
+			{
+				BossMonsterData data = new BossMonsterData();
+				data.Name = row.GetCell(0).StringCellValue;
+				data.Grade = row.GetCell(1).StringCellValue;
+				data.Hp = (int)row.GetCell(2).NumericCellValue;
+				data.Mp = (int)row.GetCell(3).NumericCellValue;
+				data.Attack = (int)row.GetCell(4).NumericCellValue;
+				data.Attackspeed = (float)row.GetCell(5).NumericCellValue;
+				data.Defence = (int)row.GetCell(6).NumericCellValue;
+				data.Speed = (float)row.GetCell(7).NumericCellValue;
+
+				return data;
+			}
+
+			return null;
+		}
+
 	}
 }

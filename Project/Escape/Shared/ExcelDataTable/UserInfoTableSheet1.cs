@@ -55,5 +55,30 @@ namespace ExcelDataTable.UserInfoTableSheet1
 			return true;
 		}
 
+		public Sheet1Data LoadSheetData(int rowIndex)
+		{
+			if (rowIndex < SheetRowBegin || rowIndex >= SheetRowEnd)
+				return null;
+
+			var excelAdapter = NPOIAdapter.GetInstance();
+			var sheet = excelAdapter.GetExcelSheet(ExcelFileName, ExcelSheetIndex);
+			if (sheet is null)
+				return null;
+
+			var row = sheet.GetRow(rowIndex);
+			if (null != row)
+			{
+				Sheet1Data data = new Sheet1Data();
+				data.Id = (int)row.GetCell(0).NumericCellValue;
+				data.Name = row.GetCell(1).StringCellValue;
+				data.Age = (int)row.GetCell(2).NumericCellValue;
+				data.Sex = (int)row.GetCell(3).NumericCellValue;
+
+				return data;
+			}
+
+			return null;
+		}
+
 	}
 }

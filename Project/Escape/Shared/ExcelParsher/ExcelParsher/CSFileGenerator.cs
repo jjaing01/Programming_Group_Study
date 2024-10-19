@@ -41,8 +41,11 @@ namespace ExcelParsher
             contents = WriteDataClassProperties(contents, sheetInfo);
             contents = WriteClassEnd(contents);
             contents += "\n\n";
+
             contents = WriteClassBegin(contents, sheetInfo.SheetName + "Table");
             contents = WriteTableClassProperties(contents, sheetInfo);
+            contents += "\n";
+            contents = WriteTableClassLoadDataAll(contents, sheetInfo);
             contents += "\n";
             contents = WriteTableClassLoadData(contents, sheetInfo);
             contents = WriteClassEnd(contents);
@@ -152,7 +155,30 @@ namespace ExcelParsher
             return contents;
         }
 
-        private string WriteTableClassLoadData(string contents, ExcelSheetInfo sheetInfo)
+        private string MakeNPOIDataParshing(ExcelSheetInfo sheetInfo)
+        {
+            string contents = "\t\t\t\t" + sheetInfo.SheetName + "Data data = new " + sheetInfo.SheetName + "Data();" + "\n";
+            for (int i = 0; i < sheetInfo.DataTypes.Count; ++i)
+            {
+                if (string.IsNullOrEmpty(sheetInfo.DataNames[i]))
+                    continue;
+
+                var noneBlankDataName = sheetInfo.DataNames[i].Replace(" ", "");
+                var dataName = char.ToUpper(noneBlankDataName[0]) + noneBlankDataName.Substring(1);
+                if ("string" == sheetInfo.DataTypes[i])
+                {
+                    contents += "\t\t\t\t" + "data." + dataName + " = row.GetCell(" + i + ").StringCellValue;" + "\n";
+                }
+                else
+                {
+                    contents += "\t\t\t\t" + "data." + dataName + " = " + "(" + sheetInfo.DataTypes[i] + ")" + "row.GetCell(" + i + ").NumericCellValue;" + "\n";
+                }
+            }
+
+            return contents;
+        }
+
+        private string WriteTableClassLoadDataAll(string contents, ExcelSheetInfo sheetInfo)
         {
             var excelAdapter = NPOIAdapter.GetInstance();
             var sheet = excelAdapter.GetExcelSheet(sheetInfo.FileName, sheetInfo.SheetIndex);
@@ -183,24 +209,10 @@ namespace ExcelParsher
             contents += "\t\t\t\t\t" + "continue;" + "\n";
             contents += "\n";
 
-            contents += "\t\t\t\t" + sheetInfo.SheetName + "Data data = new " + sheetInfo.SheetName + "Data();" + "\n";
-            for (int i = 0; i < sheetInfo.DataTypes.Count; ++i)
-            {
-                if (string.IsNullOrEmpty(sheetInfo.DataNames[i]))
-                    continue;
+            contents += MakeNPOIDataParshing(sheetInfo);
 
-                var noneBlankDataName = sheetInfo.DataNames[i].Replace(" ", "");
-                var dataName = char.ToUpper(noneBlankDataName[0]) + noneBlankDataName.Substring(1);
-                if ("string" == sheetInfo.DataTypes[i])
-                {
-                    contents += "\t\t\t\t" + "data." + dataName + " = row.GetCell(" + i + ").StringCellValue;" + "\n";
-                }
-                else
-                {
-                    contents += "\t\t\t\t" + "data." + dataName + " = " + "(" + sheetInfo.DataTypes[i] + ")" + "row.GetCell(" + i + ").NumericCellValue;" + "\n";
-                }
-            }
             contents += "\n";
+
             string result = sheetInfo.DataNames.Find(name => name.Equals("uid", StringComparison.OrdinalIgnoreCase));
             if (result is null)
             {
@@ -215,6 +227,44 @@ namespace ExcelParsher
             contents += "\t\t\t" + "\n";
 
             contents += "\t\t\t" + "return true;" + "\n";
+            contents += "\t\t" + "}\n";
+
+            return contents;
+        }
+
+        private string WriteTableClassLoadData(string contents, ExcelSheetInfo sheetInfo)
+        {
+            var excelAdapter = NPOIAdapter.GetInstance();
+            var sheet = excelAdapter.GetExcelSheet(sheetInfo.FileName, sheetInfo.SheetIndex);
+            if (sheet is null)
+                return contents;
+
+            contents += "\t\t" + "public " + sheetInfo.SheetName + "Data " + "LoadSheetData(int rowIndex)\n"
+                + "\t\t{\n";
+
+            contents += "\t\t\t" + "if (rowIndex < SheetRowBegin || rowIndex >= SheetRowEnd)\n";
+            contents += "\t\t\t\t" + "return null;\n";
+            contents += "\n";
+
+            contents += "\t\t\t" + "var excelAdapter = NPOIAdapter.GetInstance();\n";
+            contents += "\t\t\t" + "var sheet = excelAdapter.GetExcelSheet(ExcelFileName, ExcelSheetIndex);\n";
+            contents += "\t\t\t" + "if (sheet is null)\n";
+            contents += "\t\t\t\t" + "return null;\n";
+            contents += "\n";
+
+            contents += "\t\t\t" + "var row = sheet.GetRow(rowIndex);" + "\n";
+            contents += "\t\t\t" + "if (null != row)" + "\n";
+            contents += "\t\t\t" + "{" + "\n";
+
+            contents += MakeNPOIDataParshing(sheetInfo);
+
+            contents += "\n";
+            contents += "\t\t\t\t" + "return data;" + "\n";
+
+            contents += "\t\t\t" + "}" + "\n";
+            contents += "\n";
+
+            contents += "\t\t\t" + "return null;" + "\n";
             contents += "\t\t" + "}\n";
 
             return contents;
