@@ -36,6 +36,25 @@ namespace ExcelParsher
             workbooks = new Dictionary<string, IWorkbook>();
         }
 
+        public override void Init() 
+        {
+            var dirInfo = new DirectoryInfo(Constants.TableDirPath);
+            foreach (var File in dirInfo.GetFiles())
+            {
+                if (File.Extension != ".xlsx")
+                    continue;
+
+                string relativePath = Constants.TableDirPath + @"\" + File.Name;
+                var filePath = Path.GetFullPath(relativePath);
+
+                // 파일 스트림으로 엑셀 파일 열기
+                using (FileStream fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read))
+                {
+                    LoadExcel(fileStream);
+                }
+            }
+        }
+
         public override void LoadExcel(FileStream fileStream)
         {
             base.LoadExcel(fileStream);
@@ -46,9 +65,9 @@ namespace ExcelParsher
             workbooks.Add(fileName, workbook);
         }
 
-        public override void UpdateExcelSheetInfos()
+        public override void UpdateExcelSheetInfos(CSFileWrite WriteType = CSFileWrite.None)
         {
-            base.UpdateExcelSheetInfos();
+            base.UpdateExcelSheetInfos(WriteType);
 
             foreach (var workbook in workbooks)
             {
@@ -71,8 +90,11 @@ namespace ExcelParsher
                     var keyName = workbook.Key + @"+" + sheet.SheetName;
                     AddSheetInfo(keyName, info);
 
-                    var csFileName = workbook.Key + sheet.SheetName;
-                    CSFileGenerator.GetInstance().MakeDataTableFile(csFileName, info);
+                    if (CSFileWrite.Update == WriteType)
+                    {
+                        var csFileName = workbook.Key + sheet.SheetName;
+                        CSFileGenerator.GetInstance().MakeDataTableFile(csFileName, info);
+                    }
 
                     //// 첫 번째 행 (헤더) 건너뛰기 위해 1부터 시작
                     //for (int row = 2; row <= sheet.LastRowNum; row++)
