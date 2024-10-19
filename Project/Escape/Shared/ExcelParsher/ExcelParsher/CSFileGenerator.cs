@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Diagnostics;
+using NPOI.SS.UserModel;
+using NPOI.POIFS.Crypt.Dsig;
 
 namespace ExcelParsher
 {
@@ -32,18 +34,21 @@ namespace ExcelParsher
             string contents = "";
 
             contents = WriteUsing(contents);
+            contents = WriteUsingNPOI(contents);
             contents = WriteNameSpaceBegin(contents, path, fileName);
 
-            contents = WriteClassBegin(contents, sheetInfo.sheetName + "Data");
+            contents = WriteClassBegin(contents, sheetInfo.SheetName + "Data");
             contents = WriteDataClassProperties(contents, sheetInfo);
             contents = WriteClassEnd(contents);
             contents += "\n\n";
-            contents = WriteClassBegin(contents, sheetInfo.sheetName + "Table");
+            contents = WriteClassBegin(contents, sheetInfo.SheetName + "Table");
             contents = WriteTableClassProperties(contents, sheetInfo);
+            contents += "\n";
+            contents = WriteTableClassLoadData(contents, sheetInfo);
             contents = WriteClassEnd(contents);
 
             contents = WriteNameSpaceEnd(contents);
-            File.WriteAllText(path, contents);
+            File.WriteAllText(path, contents, Encoding.UTF8);
         }
 
         private string WriteUsing(string contents)
@@ -55,6 +60,18 @@ namespace ExcelParsher
                 "using System.Text;\n" +
                 "using System.Threading.Tasks;\n" +
                 "using System.IO;\n" +
+                "\n";
+
+            return contents;
+        }
+
+        private string WriteUsingNPOI(string contents)
+        {
+            contents +=
+                "using ExcelParsher;\n" +
+                "using NPOI.SS.Formula.Functions;\n" +
+                "using NPOI.SS.UserModel;\n" +
+                "using NPOI.XSSF.UserModel;\n" +
                 "\n";
 
             return contents;
@@ -89,22 +106,23 @@ namespace ExcelParsher
 
         private string WriteDataClassProperties(string contents, ExcelSheetInfo sheetInfo)
         {
-            if (sheetInfo.dataTypes.Count != sheetInfo.dataNames.Count)
+            if (sheetInfo.DataTypes.Count != sheetInfo.DataNames.Count)
             {
-                Debug.Assert(sheetInfo.dataTypes.Count != sheetInfo.dataNames.Count, "miss match data type and name count");
+                Debug.Assert(sheetInfo.DataTypes.Count != sheetInfo.DataNames.Count, "miss match data type and name count\n" +
+                    "file name : " + sheetInfo.FileName +
+                    "sheet name : " + sheetInfo.SheetName);
                 return contents;
             }
 
-            for (int i = 0; i < sheetInfo.dataTypes.Count; ++i)
+            for (int i = 0; i < sheetInfo.DataTypes.Count; ++i)
             {
-                if (string.IsNullOrEmpty(sheetInfo.dataNames[i]))
+                if (string.IsNullOrEmpty(sheetInfo.DataNames[i]))
                     continue;
 
-                var noneBlankDataName = sheetInfo.dataNames[i].Replace(" ", "");
-                var dataName = char.ToUpper(noneBlankDataName[0]) + noneBlankDataName.Substring(1).ToLower();
+                var noneBlankDataName = sheetInfo.DataNames[i].Replace(" ", "");
+                var dataName = char.ToUpper(noneBlankDataName[0]) + noneBlankDataName.Substring(1);
 
-                contents +=
-                    "\t\t" + "public " + sheetInfo.dataTypes[i] + " " + dataName + " { get; set; }\n";
+                contents += "\t\t" + "public " + sheetInfo.DataTypes[i] + " " + dataName + " { get; set; }\n";
             }
 
             return contents;
@@ -112,23 +130,92 @@ namespace ExcelParsher
 
         private string WriteTableClassProperties(string contents, ExcelSheetInfo sheetInfo)
         {
-            if (sheetInfo.dataTypes.Count != sheetInfo.dataNames.Count)
+            if (sheetInfo.DataTypes.Count != sheetInfo.DataNames.Count)
             {
-                Debug.Assert(sheetInfo.dataTypes.Count != sheetInfo.dataNames.Count, "miss match data type and name count");
+                Debug.Assert(sheetInfo.DataTypes.Count != sheetInfo.DataNames.Count
+                    , "miss match data type and name count\n" +
+                    "file name : " + sheetInfo.FileName +
+                    "sheet name : " + sheetInfo.SheetName);
                 return contents;
             }
 
-            string result = sheetInfo.dataNames.Find(name => name.Equals("uid", StringComparison.OrdinalIgnoreCase));
+            string result = sheetInfo.DataNames.Find(name => name.Equals("uid", StringComparison.OrdinalIgnoreCase));
             if (result is null)
             {
-                contents +=
-                    "\t\t" + "public List<" + sheetInfo.sheetName + "Data> " + "DataTable " + " { get; set; }\n";
+                contents += "\t\t" + "public List<" + sheetInfo.SheetName + "Data> " + "DataTable" + " = new List<" + sheetInfo.SheetName + "Data>();" + "\n";
             }
             else
             {
-                contents +=
-                    "\t\t" + "public Dictionary<int, " + sheetInfo.sheetName + "Data> " + "DataTable " + " { get; set; }\n";
+                contents += "\t\t" + "public Dictionary<int, " + sheetInfo.SheetName + "Data> " + "DataTable" + " = new Dictionary<int, " + sheetInfo.SheetName + "Data>();" + "\n";
             }
+
+            return contents;
+        }
+
+        private string WriteTableClassLoadData(string contents, ExcelSheetInfo sheetInfo)
+        {
+            var excelAdapter = NPOIAdapter.GetInstance();
+            var sheet = excelAdapter.GetExcelSheet(sheetInfo.FileName, sheetInfo.SheetIndex);
+            if (sheet is null)
+                return contents;
+
+            contents += "\t\t" + "public const string ExcelFileName = \"" + sheetInfo.FileName + "\";\n";
+            contents += "\t\t" + "public const int ExcelSheetIndex = " + sheetInfo.SheetIndex + ";\n";
+            contents += "\t\t" + "public const int SheetRowBegin = " + sheetInfo.RowBegin + ";\n";
+            contents += "\t\t" + "public const int SheetRowEnd = " + sheetInfo.RowEnd + ";\n";
+            contents += "\n";
+
+            contents += "\t\t" + "public bool LoadSheetDatasAll()\n"
+                + "\t\t{\n";
+
+            contents += "\t\t\t" + "var excelAdapter = NPOIAdapter.GetInstance();\n";
+            contents += "\t\t\t" + "var sheet = excelAdapter.GetExcelSheet(ExcelFileName, ExcelSheetIndex);\n";
+            contents += "\t\t\t" + "if (sheet is null)\n";
+            contents += "\t\t\t\t" + "return false;\n";
+            contents += "\n";
+
+            contents +=
+                "\t\t\t" + "for (int i = SheetRowBegin; i < SheetRowEnd; ++i)\n";
+            contents += "\t\t\t" + "{" + "\n";
+
+            contents += "\t\t\t\t" + "var row = sheet.GetRow(i);" + "\n";
+            contents += "\t\t\t\t" + "if (row is null)" + "\n";
+            contents += "\t\t\t\t\t" + "continue;" + "\n";
+            contents += "\n";
+
+            contents += "\t\t\t\t" + sheetInfo.SheetName + "Data data = new " + sheetInfo.SheetName + "Data();" + "\n";
+            for (int i = 0; i < sheetInfo.DataTypes.Count; ++i)
+            {
+                if (string.IsNullOrEmpty(sheetInfo.DataNames[i]))
+                    continue;
+
+                var noneBlankDataName = sheetInfo.DataNames[i].Replace(" ", "");
+                var dataName = char.ToUpper(noneBlankDataName[0]) + noneBlankDataName.Substring(1);
+                if ("string" == sheetInfo.DataTypes[i])
+                {
+                    contents += "\t\t\t\t" + "data." + dataName + " = row.GetCell(" + i + ").StringCellValue;" + "\n";
+                }
+                else
+                {
+                    contents += "\t\t\t\t" + "data." + dataName + " = " + "(" + sheetInfo.DataTypes[i] + ")" + "row.GetCell(" + i + ").NumericCellValue;" + "\n";
+                }
+            }
+            contents += "\n";
+            string result = sheetInfo.DataNames.Find(name => name.Equals("uid", StringComparison.OrdinalIgnoreCase));
+            if (result is null)
+            {
+                contents += "\t\t\t\t" + "DataTable.Add(data);" + "\n";
+            }
+            else
+            {
+                contents += "\t\t\t\t" + "DataTable.Add(data.Uid, data);\n";
+            }
+
+            contents += "\t\t\t" + "}" + "\n";
+            contents += "\t\t\t" + "\n";
+
+            contents += "\t\t\t" + "return true;" + "\n";
+            contents += "\t\t" + "}\n";
 
             return contents;
         }

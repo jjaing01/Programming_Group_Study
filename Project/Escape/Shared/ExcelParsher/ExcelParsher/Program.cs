@@ -1,7 +1,9 @@
-﻿using System;
+﻿using ExcelDataTable.MonsterInfoTableBasicMonster;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
+
 using static ExcelParsher.ExcelAdapter;
 
 namespace ExcelParsher
@@ -13,6 +15,10 @@ namespace ExcelParsher
             NPOIAdapter excelParsher = NPOIAdapter.GetInstance();
             excelParsher.Init();
             excelParsher.UpdateExcelSheetInfos(CSFileWrite.Update);
+
+            // 테스트 파싱
+            BasicMonsterTable table = new BasicMonsterTable();
+            table.LoadSheetDatasAll();
         }
     }
 }

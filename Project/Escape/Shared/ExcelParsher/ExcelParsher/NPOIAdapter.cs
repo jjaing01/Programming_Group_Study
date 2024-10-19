@@ -81,11 +81,14 @@ namespace ExcelParsher
 
                     // 데이터 타입 파싱
                     var info = new ExcelSheetInfo();
-                    
-                    info.sheetName = sheet.SheetName;
-                    info.validRowIndex = sheet.LastRowNum;
-                    info.dataNames = MakeDataLits(sheet, Constants.DataNameRow);
-                    info.dataTypes = MakeDataLits(sheet, Constants.DataTypeRow);
+
+                    info.FileName = workbook.Key;
+                    info.SheetName = sheet.SheetName;
+                    info.SheetIndex = i;
+                    info.RowBegin = Constants.DataStartRow;
+                    info.RowEnd = sheet.LastRowNum;
+                    info.DataNames = MakeDataLits(sheet, Constants.DataNameRow);
+                    info.DataTypes = MakeDataLits(sheet, Constants.DataTypeRow);
 
                     var keyName = workbook.Key + @"+" + sheet.SheetName;
                     AddSheetInfo(keyName, info);
@@ -95,25 +98,6 @@ namespace ExcelParsher
                         var csFileName = workbook.Key + sheet.SheetName;
                         CSFileGenerator.GetInstance().MakeDataTableFile(csFileName, info);
                     }
-
-                    //// 첫 번째 행 (헤더) 건너뛰기 위해 1부터 시작
-                    //for (int row = 2; row <= sheet.LastRowNum; row++)
-                    //{
-                    //    IRow currentRow = sheet.GetRow(row);
-
-                    //    // 각 셀의 값 읽기
-                    //    int monsterId = (int)currentRow.GetCell(0).NumericCellValue; // Monster ID
-                    //    string monsterName = currentRow.GetCell(1).StringCellValue;  // Monster Name
-                    //    int hp = (int)currentRow.GetCell(2).NumericCellValue;  // HP
-                    //    int mp = (int)currentRow.GetCell(3).NumericCellValue;  // MP
-                    //    int attack = (int)currentRow.GetCell(4).NumericCellValue;  // Attack
-                    //    double attackSpeed = currentRow.GetCell(5).NumericCellValue;  // Attack Speed
-                    //    double speed = currentRow.GetCell(6).NumericCellValue;  // Speed
-                    //    string imagePath = currentRow.GetCell(7).StringCellValue;  // Image Path
-
-                    //    // 데이터를 출력
-                    //    Console.WriteLine($"ID: {monsterId}, Name: {monsterName}, HP: {hp}, MP: {mp}, Attack: {attack}, Attack Speed: {attackSpeed}, Speed: {speed}, Image Path: {imagePath}");
-                    //}
                 }
             }
         }
@@ -137,6 +121,25 @@ namespace ExcelParsher
             }
 
             return types;
+        }
+
+        public IWorkbook GetExcelWorkBook(string key)
+        {
+            IWorkbook value = null;
+
+            if (false == workbooks.TryGetValue(key, out value))
+                return null;
+            else
+                return value;
+        }
+
+        public ISheet GetExcelSheet(string key, int sheetIndex)
+        {
+            IWorkbook workBook = GetExcelWorkBook(key);
+            if (workBook == null) 
+                return null;
+
+            return workBook.GetSheetAt(sheetIndex);
         }
     }
 }

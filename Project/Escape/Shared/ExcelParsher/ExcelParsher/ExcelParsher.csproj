@@ -132,6 +132,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\ExcelDataTable\MonsterInfoTableBasicMonster.cs">
+      <Link>MonsterInfoTableBasicMonster.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ExcelDataTable\MonsterInfoTableBossMonster.cs">
+      <Link>MonsterInfoTableBossMonster.cs</Link>
+    </Compile>
     <Compile Include="Constants.cs" />
     <Compile Include="CSFileGenerator.cs" />
     <Compile Include="ExcelAdapter.cs" />
