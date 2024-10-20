@@ -1,4 +1,5 @@
 ﻿using ExcelDataTable.MonsterInfoTableBasicMonster;
+using NPOI.SS.UserModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -12,9 +13,15 @@ namespace ExcelParsher
     {
         static void Main(string[] args)
         {
-            NPOIAdapter excelParsher = NPOIAdapter.GetInstance();
+            var excelParsher = NPOIAdapter.GetInstance();
             excelParsher.Init();
-            excelParsher.UpdateExcelSheetInfos(CSFileWrite.Update);
+            excelParsher.UpdateExcelSheetInfos();
+
+            foreach (var info in excelParsher.sheetInfos)
+            {
+                var csFileName = info.Value.FileName + info.Value.SheetName;
+                CSFileGenerator.GetInstance().MakeDataTableFile(csFileName, info.Value);
+            }
         }
     }
 }

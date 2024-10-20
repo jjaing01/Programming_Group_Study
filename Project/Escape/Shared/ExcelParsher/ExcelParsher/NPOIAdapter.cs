@@ -65,9 +65,9 @@ namespace ExcelParsher
             workbooks.Add(fileName, workbook);
         }
 
-        public override void UpdateExcelSheetInfos(CSFileWrite WriteType = CSFileWrite.None)
+        public override void UpdateExcelSheetInfos()
         {
-            base.UpdateExcelSheetInfos(WriteType);
+            base.UpdateExcelSheetInfos();
 
             foreach (var workbook in workbooks)
             {
@@ -77,7 +77,7 @@ namespace ExcelParsher
                 var sheetCnt = workbook.Value.NumberOfSheets;
                 for (var i = 0; i < sheetCnt; ++i)
                 {
-                    ISheet sheet = workbook.Value.GetSheetAt(i);  // 첫 번째 시트 가져오기
+                    ISheet sheet = workbook.Value.GetSheetAt(i);
 
                     // 데이터 타입 파싱
                     var info = new ExcelSheetInfo();
@@ -92,12 +92,6 @@ namespace ExcelParsher
 
                     var keyName = workbook.Key + @"+" + sheet.SheetName;
                     AddSheetInfo(keyName, info);
-
-                    if (CSFileWrite.Update == WriteType)
-                    {
-                        var csFileName = workbook.Key + sheet.SheetName;
-                        CSFileGenerator.GetInstance().MakeDataTableFile(csFileName, info);
-                    }
                 }
             }
         }

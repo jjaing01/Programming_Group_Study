@@ -10,13 +10,7 @@ namespace ExcelParsher
 {
     class ExcelAdapter
     {
-        private Dictionary<string, ExcelSheetInfo> sheetInfos;
-
-        public enum CSFileWrite
-        {
-            None,
-            Update,
-        }
+        public Dictionary<string, ExcelSheetInfo> sheetInfos;
 
         public ExcelAdapter()
         {
@@ -25,7 +19,7 @@ namespace ExcelParsher
 
         public virtual void Init() { }
         public virtual void LoadExcel(FileStream fileStream) { }
-        public virtual void UpdateExcelSheetInfos(CSFileWrite WriteType) { }
+        public virtual void UpdateExcelSheetInfos() { }
         public void AddSheetInfo(string key, ExcelSheetInfo value)
         {
             if (sheetInfos.ContainsKey(key))
