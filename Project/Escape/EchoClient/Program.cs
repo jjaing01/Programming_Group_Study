@@ -35,7 +35,7 @@ public class EchoClient
 
                         var response = Encoding.ASCII.GetString(buffer, 0, bytesRead);
                         Console.WriteLine($"response: {response}");
-                        
+                      
                     }
                 }
             }

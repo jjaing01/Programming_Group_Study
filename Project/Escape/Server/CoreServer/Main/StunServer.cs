@@ -14,18 +14,56 @@ public class StunServer
     private PeerConnection? _peerConnection;
     private DataChannel? _dataChannel;
 
-    public async Task StartAsync(int port)
+    bool isRunning;
+
+    public StunServer(string ipAddress, int port)
     {
         Console.WriteLine("STUN Server is starting");
         _signalListener = new TcpListener(IPAddress.Any, port);
         _signalListener.Start();
         Console.WriteLine($"Signal Server is running on port {port}");
 
+        isRunning = true;
+
+        Console.WriteLine("StunServer Start!");
+
+        StartAsync();
+    }
+
+    public async Task StartAsync()
+    {
         // PeerConnection 초기화
         await InitializePeerConnection();
 
         // 클라이언트 처리 시작
         await HandleSignalClientsAsync();
+
+        isRunning = true;
+    }
+
+    public void Listen()
+    {
+        while (isRunning)
+        {
+            Console.WriteLine("Listening");
+
+            try
+            {
+                // 클라이언트 연결 대기 및 수락
+                TcpClient newClient = _signalListener.AcceptTcpClient();
+                Console.WriteLine("Client Connected");
+
+
+                Thread clientThread = new Thread(() => HandleClientAsync(newClient));
+                clientThread.Start();
+
+            }
+            catch (Exception e)
+            {
+                // InvalidOperationException, SocketException 같은 것이 발생할 수 있으므로 Catch 문도 섞어보자
+                Console.WriteLine($"Exception: {e.Message}");
+            }
+        }
     }
 
     private async Task InitializePeerConnection()
@@ -60,28 +98,79 @@ public class StunServer
         _peerConnection.LocalSdpReadytoSend += async (sdp) =>
         {
             Console.WriteLine($"Local SDP: {sdp}");
-            await SendOfferToPeer(sdp); // await 추가
+            await SendOfferToPeer(sdp); // 클라이언트의 Offer를 수신 후 서버에서 Answer를 생성하도록 코드를 수정합니다.
         };
 
         // 5. PeerConnectionConfiguration 설정
         var peerConnectionConfig = new PeerConnectionConfiguration
         {
             IceServers = new List<IceServer>
+        {
+            new IceServer
             {
-                new IceServer
-                {
-                    Urls = new List<string> { "stun:127.0.0.1:3478" }
-                }
+                Urls = new List<string> { "stun:127.0.0.1:13000" }
             }
+        }
         };
 
         // 6. Configuration 설정
         await _peerConnection.InitializeAsync(peerConnectionConfig);
-
-        // 7. offer 생성
-        bool offerCreated = _peerConnection.CreateOffer();
-        Console.WriteLine(offerCreated ? "Success to create offer." : "Failed to create offer.");
     }
+
+    //private async Task InitializePeerConnection()
+    //{
+    //    // 1. PeerConnection 생성
+    //    _peerConnection = new PeerConnection();
+
+    //    // 2. ICE 후보가 준비되었을 때 호출되는 이벤트
+    //    _peerConnection.IceCandidateReadytoSend += async (candidate) =>
+    //    {
+    //        Console.WriteLine($"ICE Candidate: {candidate.ToString()}");
+    //        await SendIceCandidateToPeer(candidate); // await 추가
+    //    };
+
+    //    // 3. 데이터 채널 추가 및 이벤트 설정
+    //    _peerConnection.DataChannelAdded += (dataChannel) =>
+    //    {
+    //        _dataChannel = dataChannel;
+    //        _dataChannel.MessageReceived += (message) =>
+    //        {
+    //            Console.WriteLine("Received message: " + message);
+    //        };
+
+    //        // Open/Close 이벤트 처리
+    //        _dataChannel.StateChanged += () =>
+    //        {
+    //            Console.WriteLine($"Data channel state changed");
+    //        };
+    //    };
+
+    //    // 4. LocalSdpReadytoSend 이벤트 설정
+    //    _peerConnection.LocalSdpReadytoSend += async (sdp) =>
+    //    {
+    //        Console.WriteLine($"Local SDP: {sdp}");
+    //        await SendOfferToPeer(sdp); // await 추가
+    //    };
+
+    //    // 5. PeerConnectionConfiguration 설정
+    //    var peerConnectionConfig = new PeerConnectionConfiguration
+    //    {
+    //        IceServers = new List<IceServer>
+    //        {
+    //            new IceServer
+    //            {
+    //                Urls = new List<string> { "stun:127.0.0.1:13000" }
+    //            }
+    //        }
+    //    };
+
+    //    // 6. Configuration 설정
+    //    await _peerConnection.InitializeAsync(peerConnectionConfig);
+
+    //    // 7. offer 생성
+    //    bool offerCreated = _peerConnection.CreateOffer();
+    //    Console.WriteLine(offerCreated ? "Success to create offer." : "Failed to create offer.");
+    //}
 
     private async Task HandleSignalClientsAsync()
     {
@@ -177,14 +266,13 @@ public class StunServer
         {
             string offerSdpString = offerSdp.Content ?? "null";
             
-            // 현재 에러
-            //using (TcpClient client = new TcpClient("peerAddress", 3478)) // 실제 IP와 포트로 연결
-            //{
-            //    NetworkStream stream = client.GetStream();
-            //    byte[] data = Encoding.UTF8.GetBytes($"OFFER:{offerSdpString}");
-            //    await stream.WriteAsync(data, 0, data.Length);
-            //    Console.WriteLine($"Sent Offer to peer: {offerSdpString}");
-            //}
+            using (TcpClient client = new TcpClient("127.0.0.1", 13000)) // 실제 IP와 포트로 연결
+            {
+                NetworkStream stream = client.GetStream();
+                byte[] data = Encoding.UTF8.GetBytes($"OFFER:{offerSdpString}");
+                await stream.WriteAsync(data, 0, data.Length);
+                Console.WriteLine($"Sent Offer to peer: {offerSdpString}");
+            }
         }
         catch (SocketException ex)
         {
