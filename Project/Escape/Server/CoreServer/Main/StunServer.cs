@@ -98,7 +98,7 @@ public class StunServer
         _peerConnection.LocalSdpReadytoSend += async (sdp) =>
         {
             Console.WriteLine($"Local SDP: {sdp}");
-            await SendOfferToPeer(sdp); // 클라이언트의 Offer를 수신 후 서버에서 Answer를 생성하도록 코드를 수정합니다.
+            await SendOfferToPeer(sdp); // await 추가
         };
 
         // 5. PeerConnectionConfiguration 설정
@@ -116,62 +116,6 @@ public class StunServer
         // 6. Configuration 설정
         await _peerConnection.InitializeAsync(peerConnectionConfig);
     }
-
-    //private async Task InitializePeerConnection()
-    //{
-    //    // 1. PeerConnection 생성
-    //    _peerConnection = new PeerConnection();
-
-    //    // 2. ICE 후보가 준비되었을 때 호출되는 이벤트
-    //    _peerConnection.IceCandidateReadytoSend += async (candidate) =>
-    //    {
-    //        Console.WriteLine($"ICE Candidate: {candidate.ToString()}");
-    //        await SendIceCandidateToPeer(candidate); // await 추가
-    //    };
-
-    //    // 3. 데이터 채널 추가 및 이벤트 설정
-    //    _peerConnection.DataChannelAdded += (dataChannel) =>
-    //    {
-    //        _dataChannel = dataChannel;
-    //        _dataChannel.MessageReceived += (message) =>
-    //        {
-    //            Console.WriteLine("Received message: " + message);
-    //        };
-
-    //        // Open/Close 이벤트 처리
-    //        _dataChannel.StateChanged += () =>
-    //        {
-    //            Console.WriteLine($"Data channel state changed");
-    //        };
-    //    };
-
-    //    // 4. LocalSdpReadytoSend 이벤트 설정
-    //    _peerConnection.LocalSdpReadytoSend += async (sdp) =>
-    //    {
-    //        Console.WriteLine($"Local SDP: {sdp}");
-    //        await SendOfferToPeer(sdp); // await 추가
-    //    };
-
-    //    // 5. PeerConnectionConfiguration 설정
-    //    var peerConnectionConfig = new PeerConnectionConfiguration
-    //    {
-    //        IceServers = new List<IceServer>
-    //        {
-    //            new IceServer
-    //            {
-    //                Urls = new List<string> { "stun:127.0.0.1:13000" }
-    //            }
-    //        }
-    //    };
-
-    //    // 6. Configuration 설정
-    //    await _peerConnection.InitializeAsync(peerConnectionConfig);
-
-    //    // 7. offer 생성
-    //    bool offerCreated = _peerConnection.CreateOffer();
-    //    Console.WriteLine(offerCreated ? "Success to create offer." : "Failed to create offer.");
-    //}
-
     private async Task HandleSignalClientsAsync()
     {
         while (true)
