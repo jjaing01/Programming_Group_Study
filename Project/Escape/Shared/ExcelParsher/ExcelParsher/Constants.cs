@@ -10,6 +10,7 @@ namespace ExcelParsher
     {
         public const int DataTypeRow = 0;
         public const int DataNameRow = 1;
+        public const int DataStartRow = 2;
 
         public const string TableDirPath = @"..\..\..\..\ExcelDataTable";
     }
