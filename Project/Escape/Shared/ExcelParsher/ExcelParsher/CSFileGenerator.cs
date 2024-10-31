@@ -180,8 +180,8 @@ namespace ExcelParsher
 
         private string WriteTableClassLoadDataAll(string contents, ExcelSheetInfo sheetInfo)
         {
-            var excelAdapter = NPOIAdaptor.GetInstance();
-            var sheet = excelAdapter.GetExcelSheet(sheetInfo.FileName, sheetInfo.SheetIndex);
+            var excelAdaptor = NPOIAdaptor.GetInstance();
+            var sheet = excelAdaptor.GetExcelSheet(sheetInfo.FileName, sheetInfo.SheetIndex);
             if (sheet is null)
                 return contents;
 
@@ -194,8 +194,8 @@ namespace ExcelParsher
             contents += "\t\t" + "public bool LoadSheetDatasAll()\n"
                 + "\t\t{\n";
 
-            contents += "\t\t\t" + "var excelAdapter = NPOIAdapter.GetInstance();\n";
-            contents += "\t\t\t" + "var sheet = excelAdapter.GetExcelSheet(ExcelFileName, ExcelSheetIndex);\n";
+            contents += "\t\t\t" + "var excelAdaptor = NPOIAdaptor.GetInstance();\n";
+            contents += "\t\t\t" + "var sheet = excelAdaptor.GetExcelSheet(ExcelFileName, ExcelSheetIndex);\n";
             contents += "\t\t\t" + "if (sheet is null)\n";
             contents += "\t\t\t\t" + "return false;\n";
             contents += "\n";
@@ -234,8 +234,8 @@ namespace ExcelParsher
 
         private string WriteTableClassLoadData(string contents, ExcelSheetInfo sheetInfo)
         {
-            var excelAdapter = NPOIAdaptor.GetInstance();
-            var sheet = excelAdapter.GetExcelSheet(sheetInfo.FileName, sheetInfo.SheetIndex);
+            var excelAdaptor = NPOIAdaptor.GetInstance();
+            var sheet = excelAdaptor.GetExcelSheet(sheetInfo.FileName, sheetInfo.SheetIndex);
             if (sheet is null)
                 return contents;
 
@@ -246,8 +246,8 @@ namespace ExcelParsher
             contents += "\t\t\t\t" + "return null;\n";
             contents += "\n";
 
-            contents += "\t\t\t" + "var excelAdapter = NPOIAdapter.GetInstance();\n";
-            contents += "\t\t\t" + "var sheet = excelAdapter.GetExcelSheet(ExcelFileName, ExcelSheetIndex);\n";
+            contents += "\t\t\t" + "var excelAdaptor = NPOIAdaptor.GetInstance();\n";
+            contents += "\t\t\t" + "var sheet = excelAdaptor.GetExcelSheet(ExcelFileName, ExcelSheetIndex);\n";
             contents += "\t\t\t" + "if (sheet is null)\n";
             contents += "\t\t\t\t" + "return null;\n";
             contents += "\n";

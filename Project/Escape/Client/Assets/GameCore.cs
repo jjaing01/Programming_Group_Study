@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ExcelParsher;
 
 public class GameCore : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class GameCore : MonoBehaviour
     void Start()
     {
         //Instantiate(monsterSpawner, parent);
+
+        NPOIAdaptor.GetInstance().Init();
     }
 
     // Update is called once per frame

@@ -21,6 +21,8 @@ namespace ExcelParsher
                 var csFileName = info.Value.FileName + info.Value.SheetName;
                 CSFileGenerator.GetInstance().MakeDataTableFile(csFileName, info.Value);
             }
+
+            Console.WriteLine("Success");
         }
     }
 }

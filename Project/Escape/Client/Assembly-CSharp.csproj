@@ -61,14 +61,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\MainCameraMovement.cs" />
+    <Compile Include="Assets\ExcelParsher\UserInfoTableSheet1.cs" />
+    <Compile Include="Assets\ExcelParsher\NPOIAdaptor.cs" />
+    <Compile Include="Assets\ExcelParsher\MonsterInfoTableBossMonster.cs" />
     <Compile Include="Assets\CameraSwitcher.cs" />
+    <Compile Include="Assets\ExcelParsher\ExcelAdaptor.cs" />
     <Compile Include="Assets\EchoServerConnection.cs" />
     <Compile Include="Assets\MonsterLifeTime.cs" />
     <Compile Include="Assets\GameCore.cs" />
     <Compile Include="Assets\DebugCameraMovement.cs" />
+    <Compile Include="Assets\ExcelParsher\Constants.cs" />
     <Compile Include="Assets\MonsterMovement.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\SpawnMonster.cs" />
+    <Compile Include="Assets\ExcelParsher\ExcelSheetInfo.cs" />
+    <Compile Include="Assets\ExcelParsher\MonsterInfoTableBasicMonster.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
