@@ -9,8 +9,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <ProjectGuid>{12F44184-A422-5F27-22E6-507969043F15}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -72,12 +71,6 @@
     <Compile Include="Assets\SpawnMonster.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="System.Formats.Asn1, Version=8.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>packages\System.Formats.Asn1.8.0.1\lib\net462\System.Formats.Asn1.dll</HintPath>
-    </Reference>
-    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.30f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
       <Private>False</Private>
@@ -410,6 +403,42 @@
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.30f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>Assets\Plugins\NPOI.OOXML.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Formats.Asn1">
+      <HintPath>Assets\Plugins\System.Formats.Asn1.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>Assets\Plugins\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="BouncyCastle.Cryptography">
+      <HintPath>Assets\Plugins\BouncyCastle.Cryptography.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>Assets\Plugins\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Configuration.ConfigurationManager">
+      <HintPath>Assets\Plugins\System.Configuration.ConfigurationManager.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Pkcs">
+      <HintPath>Assets\Plugins\System.Security.Cryptography.Pkcs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MathNet.Numerics">
+      <HintPath>Assets\Plugins\MathNet.Numerics.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Security.AccessControl">
+      <HintPath>Assets\Plugins\System.Security.AccessControl.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="NPOI.Core">
       <HintPath>Assets\Plugins\NPOI.Core.dll</HintPath>
       <Private>False</Private>
@@ -418,24 +447,32 @@
       <HintPath>Assets\Plugins\NPOI.OpenXml4Net.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="NPOI.OOXML">
-      <HintPath>Assets\Plugins\NPOI.OOXML.dll</HintPath>
+    <Reference Include="System.Security.Permissions">
+      <HintPath>Assets\Plugins\System.Security.Permissions.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="NPOI.OpenXmlFormats">
-      <HintPath>Assets\Plugins\NPOI.OpenXmlFormats.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System.Security.Cryptography.Pkcs">
-      <HintPath>Assets\Plugins\System.Security.Cryptography.Pkcs.dll</HintPath>
+    <Reference Include="System.Text.Encoding.CodePages">
+      <HintPath>Assets\Plugins\System.Text.Encoding.CodePages.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Enums.NET">
       <HintPath>Assets\Plugins\Enums.NET.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="System.Text.Encoding.CodePages">
-      <HintPath>Assets\Plugins\System.Text.Encoding.CodePages.dll</HintPath>
+    <Reference Include="SixLabors.ImageSharp">
+      <HintPath>Assets\Plugins\SixLabors.ImageSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SixLabors.Fonts">
+      <HintPath>Assets\Plugins\SixLabors.Fonts.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream">
+      <HintPath>Assets\Plugins\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Xml">
+      <HintPath>Assets\Plugins\System.Security.Cryptography.Xml.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Security.Principal.Windows">
@@ -446,52 +483,8 @@
       <HintPath>Assets\Plugins\ExtendedNumerics.BigDecimal.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="System.Security.AccessControl">
-      <HintPath>Assets\Plugins\System.Security.AccessControl.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="SixLabors.Fonts">
-      <HintPath>Assets\Plugins\SixLabors.Fonts.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe">
-      <HintPath>Assets\Plugins\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="SixLabors.ImageSharp">
-      <HintPath>Assets\Plugins\SixLabors.ImageSharp.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="MathNet.Numerics">
-      <HintPath>Assets\Plugins\MathNet.Numerics.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Microsoft.IO.RecyclableMemoryStream">
-      <HintPath>Assets\Plugins\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="BouncyCastle.Cryptography">
-      <HintPath>Assets\Plugins\BouncyCastle.Cryptography.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System.Security.Cryptography.Xml">
-      <HintPath>Assets\Plugins\System.Security.Cryptography.Xml.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="ICSharpCode.SharpZipLib">
-      <HintPath>Assets\Plugins\ICSharpCode.SharpZipLib.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="BouncyCastle.Crypto">
-      <HintPath>Assets\Plugins\BouncyCastle.Crypto.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System.Security.Permissions">
-      <HintPath>Assets\Plugins\System.Security.Permissions.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System.Configuration.ConfigurationManager">
-      <HintPath>Assets\Plugins\System.Configuration.ConfigurationManager.dll</HintPath>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>Assets\Plugins\NPOI.OpenXmlFormats.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">
@@ -882,6 +875,10 @@
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.30f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Threading.Timer.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="System.ValueTuple">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.30f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.ValueTuple.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System.Xml.ReaderWriter">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.30f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\System.Xml.ReaderWriter.dll</HintPath>
       <Private>False</Private>
@@ -1000,7 +997,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

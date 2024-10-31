@@ -407,6 +407,42 @@
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.30f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>Assets\Plugins\NPOI.OOXML.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Formats.Asn1">
+      <HintPath>Assets\Plugins\System.Formats.Asn1.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>Assets\Plugins\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="BouncyCastle.Cryptography">
+      <HintPath>Assets\Plugins\BouncyCastle.Cryptography.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>Assets\Plugins\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Configuration.ConfigurationManager">
+      <HintPath>Assets\Plugins\System.Configuration.ConfigurationManager.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Pkcs">
+      <HintPath>Assets\Plugins\System.Security.Cryptography.Pkcs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MathNet.Numerics">
+      <HintPath>Assets\Plugins\MathNet.Numerics.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Security.AccessControl">
+      <HintPath>Assets\Plugins\System.Security.AccessControl.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="NPOI.Core">
       <HintPath>Assets\Plugins\NPOI.Core.dll</HintPath>
       <Private>False</Private>
@@ -415,24 +451,32 @@
       <HintPath>Assets\Plugins\NPOI.OpenXml4Net.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="NPOI.OOXML">
-      <HintPath>Assets\Plugins\NPOI.OOXML.dll</HintPath>
+    <Reference Include="System.Security.Permissions">
+      <HintPath>Assets\Plugins\System.Security.Permissions.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="NPOI.OpenXmlFormats">
-      <HintPath>Assets\Plugins\NPOI.OpenXmlFormats.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System.Security.Cryptography.Pkcs">
-      <HintPath>Assets\Plugins\System.Security.Cryptography.Pkcs.dll</HintPath>
+    <Reference Include="System.Text.Encoding.CodePages">
+      <HintPath>Assets\Plugins\System.Text.Encoding.CodePages.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Enums.NET">
       <HintPath>Assets\Plugins\Enums.NET.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="System.Text.Encoding.CodePages">
-      <HintPath>Assets\Plugins\System.Text.Encoding.CodePages.dll</HintPath>
+    <Reference Include="SixLabors.ImageSharp">
+      <HintPath>Assets\Plugins\SixLabors.ImageSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SixLabors.Fonts">
+      <HintPath>Assets\Plugins\SixLabors.Fonts.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream">
+      <HintPath>Assets\Plugins\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Xml">
+      <HintPath>Assets\Plugins\System.Security.Cryptography.Xml.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Security.Principal.Windows">
@@ -443,52 +487,8 @@
       <HintPath>Assets\Plugins\ExtendedNumerics.BigDecimal.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="System.Security.AccessControl">
-      <HintPath>Assets\Plugins\System.Security.AccessControl.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="SixLabors.Fonts">
-      <HintPath>Assets\Plugins\SixLabors.Fonts.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe">
-      <HintPath>Assets\Plugins\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="SixLabors.ImageSharp">
-      <HintPath>Assets\Plugins\SixLabors.ImageSharp.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="MathNet.Numerics">
-      <HintPath>Assets\Plugins\MathNet.Numerics.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Microsoft.IO.RecyclableMemoryStream">
-      <HintPath>Assets\Plugins\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="BouncyCastle.Cryptography">
-      <HintPath>Assets\Plugins\BouncyCastle.Cryptography.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System.Security.Cryptography.Xml">
-      <HintPath>Assets\Plugins\System.Security.Cryptography.Xml.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="ICSharpCode.SharpZipLib">
-      <HintPath>Assets\Plugins\ICSharpCode.SharpZipLib.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="BouncyCastle.Crypto">
-      <HintPath>Assets\Plugins\BouncyCastle.Crypto.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System.Security.Permissions">
-      <HintPath>Assets\Plugins\System.Security.Permissions.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System.Configuration.ConfigurationManager">
-      <HintPath>Assets\Plugins\System.Configuration.ConfigurationManager.dll</HintPath>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>Assets\Plugins\NPOI.OpenXmlFormats.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="nunit.framework">
