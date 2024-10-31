@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace ExcelParsher
 {
-    class ExcelAdapter
+    class ExcelAdaptor
     {
         public Dictionary<string, ExcelSheetInfo> sheetInfos;
 
-        public ExcelAdapter()
+        public ExcelAdaptor()
         {
             sheetInfos = new Dictionary<string, ExcelSheetInfo>();
         }

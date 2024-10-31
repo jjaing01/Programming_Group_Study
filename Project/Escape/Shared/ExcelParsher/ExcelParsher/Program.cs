@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
 
-using static ExcelParsher.ExcelAdapter;
+using static ExcelParsher.ExcelAdaptor;
 
 namespace ExcelParsher
 {
@@ -12,7 +12,7 @@ namespace ExcelParsher
     {
         static void Main(string[] args)
         {
-            var excelParsher = NPOIAdapter.GetInstance();
+            var excelParsher = NPOIAdaptor.GetInstance();
             excelParsher.Init();
             excelParsher.UpdateExcelSheetInfos();
 

@@ -12,26 +12,26 @@ using NPOI.XSSF.UserModel; // for .xlsx files
 
 namespace ExcelParsher
 {
-    internal class NPOIAdapter : ExcelAdapter
+    internal class NPOIAdaptor : ExcelAdaptor
     {
         private Dictionary<string, IWorkbook> workbooks;
-        private static NPOIAdapter instance = null;
+        private static NPOIAdaptor instance = null;
         private static readonly object _lock = new object();
 
-        public static NPOIAdapter GetInstance()
+        public static NPOIAdaptor GetInstance()
         {
             if (instance is null)
             {
                 lock(_lock)
                 {
-                    instance = new NPOIAdapter();
+                    instance = new NPOIAdaptor();
                 }
             }
 
             return instance;
         }
 
-        private NPOIAdapter()
+        private NPOIAdaptor()
         {
             workbooks = new Dictionary<string, IWorkbook>();
         }

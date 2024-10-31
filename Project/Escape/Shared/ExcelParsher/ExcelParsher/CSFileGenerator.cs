@@ -180,7 +180,7 @@ namespace ExcelParsher
 
         private string WriteTableClassLoadDataAll(string contents, ExcelSheetInfo sheetInfo)
         {
-            var excelAdapter = NPOIAdapter.GetInstance();
+            var excelAdapter = NPOIAdaptor.GetInstance();
             var sheet = excelAdapter.GetExcelSheet(sheetInfo.FileName, sheetInfo.SheetIndex);
             if (sheet is null)
                 return contents;
@@ -234,7 +234,7 @@ namespace ExcelParsher
 
         private string WriteTableClassLoadData(string contents, ExcelSheetInfo sheetInfo)
         {
-            var excelAdapter = NPOIAdapter.GetInstance();
+            var excelAdapter = NPOIAdaptor.GetInstance();
             var sheet = excelAdapter.GetExcelSheet(sheetInfo.FileName, sheetInfo.SheetIndex);
             if (sheet is null)
                 return contents;
