@@ -31,7 +31,7 @@ namespace ExcelDataTable.MonsterInfoTableBasicMonster
 
 	}
 
-	public class BasicMonsterTable
+	public class BasicMonsterTable : IExcelTable
 	{
 		public Dictionary<int, BasicMonsterData> DataTable = new Dictionary<int, BasicMonsterData>();
 

@@ -12,8 +12,6 @@ public class GameCore : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Instantiate(monsterSpawner, parent);
-
         NPOIAdaptor.GetInstance().Init();
     }
 
@@ -22,7 +20,4 @@ public class GameCore : MonoBehaviour
     {
         
     }
-
-    //public Transform parent;
-    //public GameObject monsterSpawner;
 }

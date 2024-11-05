@@ -21,7 +21,7 @@ namespace ExcelDataTable.UserInfoTableSheet1
 
 	}
 
-	public class Sheet1Table
+	public class Sheet1Table : IExcelTable
 	{
 		public List<Sheet1Data> DataTable = new List<Sheet1Data>();
 

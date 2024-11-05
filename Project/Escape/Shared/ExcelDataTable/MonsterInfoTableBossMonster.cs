@@ -25,7 +25,7 @@ namespace ExcelDataTable.MonsterInfoTableBossMonster
 
 	}
 
-	public class BossMonsterTable
+	public class BossMonsterTable : IExcelTable
 	{
 		public List<BossMonsterData> DataTable = new List<BossMonsterData>();
 

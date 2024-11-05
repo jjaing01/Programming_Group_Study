@@ -37,12 +37,12 @@ namespace ExcelParsher
             contents = WriteUsingNPOI(contents);
             contents = WriteNameSpaceBegin(contents, path, fileName);
 
-            contents = WriteClassBegin(contents, sheetInfo.SheetName + "Data");
+            contents = WriteClassBegin(contents, sheetInfo.SheetName + "Data", false);
             contents = WriteDataClassProperties(contents, sheetInfo);
             contents = WriteClassEnd(contents);
             contents += "\n\n";
 
-            contents = WriteClassBegin(contents, sheetInfo.SheetName + "Table");
+            contents = WriteClassBegin(contents, sheetInfo.SheetName + "Table", true);
             contents = WriteTableClassProperties(contents, sheetInfo);
             contents += "\n";
             contents = WriteTableClassLoadDataAll(contents, sheetInfo);
@@ -98,11 +98,20 @@ namespace ExcelParsher
             return contents;
         }
 
-        private string WriteClassBegin(string contents, string className)
+        private string WriteClassBegin(string contents, string className, bool useInterface)
         {
-            contents +=
-                "\t" + "public class " + className + "\n" +
-                "\t" + "{\n";
+            if (useInterface)
+            {
+                contents +=
+                    "\t" + "public class " + className + " : IExcelTable" + "\n" +
+                    "\t" + "{\n";
+            }
+            else
+            {
+                contents +=
+                    "\t" + "public class " + className + "\n" +
+                    "\t" + "{\n";
+            }
 
             return contents;
         }

@@ -74,6 +74,7 @@
     <Compile Include="Assets\MonsterMovement.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\SpawnMonster.cs" />
+    <Compile Include="Assets\ExcelParsher\IExcelTable.cs" />
     <Compile Include="Assets\ExcelParsher\ExcelSheetInfo.cs" />
     <Compile Include="Assets\ExcelParsher\MonsterInfoTableBasicMonster.cs" />
   </ItemGroup>
