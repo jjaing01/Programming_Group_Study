@@ -37,12 +37,12 @@ namespace ExcelParsher
             contents = WriteUsingNPOI(contents);
             contents = WriteNameSpaceBegin(contents, path, fileName);
 
-            contents = WriteClassBegin(contents, sheetInfo.SheetName + "Data");
+            contents = WriteClassBegin(contents, sheetInfo.SheetName + "Data", false);
             contents = WriteDataClassProperties(contents, sheetInfo);
             contents = WriteClassEnd(contents);
             contents += "\n\n";
 
-            contents = WriteClassBegin(contents, sheetInfo.SheetName + "Table");
+            contents = WriteClassBegin(contents, sheetInfo.SheetName + "Table", true);
             contents = WriteTableClassProperties(contents, sheetInfo);
             contents += "\n";
             contents = WriteTableClassLoadDataAll(contents, sheetInfo);
@@ -98,11 +98,20 @@ namespace ExcelParsher
             return contents;
         }
 
-        private string WriteClassBegin(string contents, string className)
+        private string WriteClassBegin(string contents, string className, bool useInterface)
         {
-            contents +=
-                "\t" + "public class " + className + "\n" +
-                "\t" + "{\n";
+            if (useInterface)
+            {
+                contents +=
+                    "\t" + "public class " + className + " : IExcelTable" + "\n" +
+                    "\t" + "{\n";
+            }
+            else
+            {
+                contents +=
+                    "\t" + "public class " + className + "\n" +
+                    "\t" + "{\n";
+            }
 
             return contents;
         }
@@ -180,8 +189,8 @@ namespace ExcelParsher
 
         private string WriteTableClassLoadDataAll(string contents, ExcelSheetInfo sheetInfo)
         {
-            var excelAdapter = NPOIAdapter.GetInstance();
-            var sheet = excelAdapter.GetExcelSheet(sheetInfo.FileName, sheetInfo.SheetIndex);
+            var excelAdaptor = NPOIAdaptor.GetInstance();
+            var sheet = excelAdaptor.GetExcelSheet(sheetInfo.FileName, sheetInfo.SheetIndex);
             if (sheet is null)
                 return contents;
 
@@ -194,8 +203,8 @@ namespace ExcelParsher
             contents += "\t\t" + "public bool LoadSheetDatasAll()\n"
                 + "\t\t{\n";
 
-            contents += "\t\t\t" + "var excelAdapter = NPOIAdapter.GetInstance();\n";
-            contents += "\t\t\t" + "var sheet = excelAdapter.GetExcelSheet(ExcelFileName, ExcelSheetIndex);\n";
+            contents += "\t\t\t" + "var excelAdaptor = NPOIAdaptor.GetInstance();\n";
+            contents += "\t\t\t" + "var sheet = excelAdaptor.GetExcelSheet(ExcelFileName, ExcelSheetIndex);\n";
             contents += "\t\t\t" + "if (sheet is null)\n";
             contents += "\t\t\t\t" + "return false;\n";
             contents += "\n";
@@ -234,8 +243,8 @@ namespace ExcelParsher
 
         private string WriteTableClassLoadData(string contents, ExcelSheetInfo sheetInfo)
         {
-            var excelAdapter = NPOIAdapter.GetInstance();
-            var sheet = excelAdapter.GetExcelSheet(sheetInfo.FileName, sheetInfo.SheetIndex);
+            var excelAdaptor = NPOIAdaptor.GetInstance();
+            var sheet = excelAdaptor.GetExcelSheet(sheetInfo.FileName, sheetInfo.SheetIndex);
             if (sheet is null)
                 return contents;
 
@@ -246,8 +255,8 @@ namespace ExcelParsher
             contents += "\t\t\t\t" + "return null;\n";
             contents += "\n";
 
-            contents += "\t\t\t" + "var excelAdapter = NPOIAdapter.GetInstance();\n";
-            contents += "\t\t\t" + "var sheet = excelAdapter.GetExcelSheet(ExcelFileName, ExcelSheetIndex);\n";
+            contents += "\t\t\t" + "var excelAdaptor = NPOIAdaptor.GetInstance();\n";
+            contents += "\t\t\t" + "var sheet = excelAdaptor.GetExcelSheet(ExcelFileName, ExcelSheetIndex);\n";
             contents += "\t\t\t" + "if (sheet is null)\n";
             contents += "\t\t\t\t" + "return null;\n";
             contents += "\n";

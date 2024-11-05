@@ -21,7 +21,7 @@ namespace ExcelDataTable.UserInfoTableSheet1
 
 	}
 
-	public class Sheet1Table
+	public class Sheet1Table : IExcelTable
 	{
 		public List<Sheet1Data> DataTable = new List<Sheet1Data>();
 
@@ -32,8 +32,8 @@ namespace ExcelDataTable.UserInfoTableSheet1
 
 		public bool LoadSheetDatasAll()
 		{
-			var excelAdapter = NPOIAdapter.GetInstance();
-			var sheet = excelAdapter.GetExcelSheet(ExcelFileName, ExcelSheetIndex);
+			var excelAdaptor = NPOIAdaptor.GetInstance();
+			var sheet = excelAdaptor.GetExcelSheet(ExcelFileName, ExcelSheetIndex);
 			if (sheet is null)
 				return false;
 
@@ -60,8 +60,8 @@ namespace ExcelDataTable.UserInfoTableSheet1
 			if (rowIndex < SheetRowBegin || rowIndex >= SheetRowEnd)
 				return null;
 
-			var excelAdapter = NPOIAdapter.GetInstance();
-			var sheet = excelAdapter.GetExcelSheet(ExcelFileName, ExcelSheetIndex);
+			var excelAdaptor = NPOIAdaptor.GetInstance();
+			var sheet = excelAdaptor.GetExcelSheet(ExcelFileName, ExcelSheetIndex);
 			if (sheet is null)
 				return null;
 

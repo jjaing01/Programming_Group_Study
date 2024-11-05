@@ -25,7 +25,7 @@ namespace ExcelDataTable.MonsterInfoTableBossMonster
 
 	}
 
-	public class BossMonsterTable
+	public class BossMonsterTable : IExcelTable
 	{
 		public List<BossMonsterData> DataTable = new List<BossMonsterData>();
 
@@ -36,8 +36,8 @@ namespace ExcelDataTable.MonsterInfoTableBossMonster
 
 		public bool LoadSheetDatasAll()
 		{
-			var excelAdapter = NPOIAdapter.GetInstance();
-			var sheet = excelAdapter.GetExcelSheet(ExcelFileName, ExcelSheetIndex);
+			var excelAdaptor = NPOIAdaptor.GetInstance();
+			var sheet = excelAdaptor.GetExcelSheet(ExcelFileName, ExcelSheetIndex);
 			if (sheet is null)
 				return false;
 
@@ -68,8 +68,8 @@ namespace ExcelDataTable.MonsterInfoTableBossMonster
 			if (rowIndex < SheetRowBegin || rowIndex >= SheetRowEnd)
 				return null;
 
-			var excelAdapter = NPOIAdapter.GetInstance();
-			var sheet = excelAdapter.GetExcelSheet(ExcelFileName, ExcelSheetIndex);
+			var excelAdaptor = NPOIAdaptor.GetInstance();
+			var sheet = excelAdaptor.GetExcelSheet(ExcelFileName, ExcelSheetIndex);
 			if (sheet is null)
 				return null;
 

@@ -132,16 +132,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\ExcelDataTable\MonsterInfoTableBasicMonster.cs">
-      <Link>MonsterInfoTableBasicMonster.cs</Link>
-    </Compile>
-    <Compile Include="..\..\ExcelDataTable\MonsterInfoTableBossMonster.cs">
-      <Link>MonsterInfoTableBossMonster.cs</Link>
-    </Compile>
     <Compile Include="Constants.cs" />
     <Compile Include="CSFileGenerator.cs" />
-    <Compile Include="ExcelAdapter.cs" />
-    <Compile Include="NPOIAdapter.cs" />
+    <Compile Include="ExcelAdaptor.cs" />
+    <Compile Include="NPOIAdaptor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ExcelSheetInfo.cs" />

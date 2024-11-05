@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ExcelParsher;
+using ExcelDataTable.MonsterInfoTableBasicMonster;
+using ExcelDataTable.MonsterInfoTableBossMonster;
 
 public class GameCore : MonoBehaviour
 {
@@ -11,7 +14,12 @@ public class GameCore : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Instantiate(monsterSpawner, parent);
+        NPOIAdaptor.GetInstance().Init();
+        var basicMosntgerTable = new BasicMonsterTable();
+        basicMosntgerTable.LoadSheetDatasAll();
+
+        var bossMonsterTable = new BossMonsterTable();
+        bossMonsterTable.LoadSheetDatasAll();
     }
 
     // Update is called once per frame
@@ -19,7 +27,4 @@ public class GameCore : MonoBehaviour
     {
         
     }
-
-    //public Transform parent;
-    //public GameObject monsterSpawner;
 }
