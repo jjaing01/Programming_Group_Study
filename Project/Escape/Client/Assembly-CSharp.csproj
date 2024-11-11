@@ -60,20 +60,18 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.30f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\MainCameraMovement.cs" />
-    <Compile Include="Assets\ExcelParsher\UserInfoTableSheet1.cs" />
+    <Compile Include="Assets\Monster\MonsterMovement.cs" />
+    <Compile Include="Assets\Monster\SpawnMonster.cs" />
     <Compile Include="Assets\ExcelParsher\NPOIAdaptor.cs" />
-    <Compile Include="Assets\ExcelParsher\MonsterInfoTableBossMonster.cs" />
-    <Compile Include="Assets\CameraSwitcher.cs" />
+    <Compile Include="Assets\Camera\CameraSwitcher.cs" />
+    <Compile Include="Assets\Monster\MonsterLifeTime.cs" />
     <Compile Include="Assets\ExcelParsher\ExcelAdaptor.cs" />
     <Compile Include="Assets\EchoServerConnection.cs" />
-    <Compile Include="Assets\MonsterLifeTime.cs" />
     <Compile Include="Assets\GameCore.cs" />
-    <Compile Include="Assets\DebugCameraMovement.cs" />
+    <Compile Include="Assets\Camera\MainCameraMovement.cs" />
     <Compile Include="Assets\ExcelParsher\Constants.cs" />
-    <Compile Include="Assets\MonsterMovement.cs" />
+    <Compile Include="Assets\Camera\DebugCameraMovement.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
-    <Compile Include="Assets\SpawnMonster.cs" />
     <Compile Include="Assets\ExcelParsher\IExcelTable.cs" />
     <Compile Include="Assets\ExcelParsher\ExcelSheetInfo.cs" />
     <Compile Include="Assets\ExcelParsher\MonsterInfoTableBasicMonster.cs" />

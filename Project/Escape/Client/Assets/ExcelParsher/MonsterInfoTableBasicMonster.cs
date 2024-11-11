@@ -18,16 +18,8 @@ namespace ExcelDataTable.MonsterInfoTableBasicMonster
 		public string Name { get; set; }
 		public string Grade { get; set; }
 		public int Hp { get; set; }
-		public int Mp { get; set; }
-		public int Attack { get; set; }
-		public float Attackspeed { get; set; }
 		public int Defence { get; set; }
 		public float Speed { get; set; }
-		public string Element { get; set; }
-		public string Weakness { get; set; }
-		public string Abilities { get; set; }
-		public string Loot { get; set; }
-		public string Imagepath { get; set; }
 
 	}
 
@@ -58,16 +50,8 @@ namespace ExcelDataTable.MonsterInfoTableBasicMonster
 				data.Name = row.GetCell(1).StringCellValue;
 				data.Grade = row.GetCell(2).StringCellValue;
 				data.Hp = (int)row.GetCell(3).NumericCellValue;
-				data.Mp = (int)row.GetCell(4).NumericCellValue;
-				data.Attack = (int)row.GetCell(5).NumericCellValue;
-				data.Attackspeed = (float)row.GetCell(6).NumericCellValue;
-				data.Defence = (int)row.GetCell(7).NumericCellValue;
-				data.Speed = (float)row.GetCell(8).NumericCellValue;
-				data.Element = row.GetCell(9).StringCellValue;
-				data.Weakness = row.GetCell(10).StringCellValue;
-				data.Abilities = row.GetCell(11).StringCellValue;
-				data.Loot = row.GetCell(12).StringCellValue;
-				data.Imagepath = row.GetCell(13).StringCellValue;
+				data.Defence = (int)row.GetCell(4).NumericCellValue;
+				data.Speed = (float)row.GetCell(5).NumericCellValue;
 
 				DataTable.Add(data.Uid, data);
 			}
@@ -93,16 +77,8 @@ namespace ExcelDataTable.MonsterInfoTableBasicMonster
 				data.Name = row.GetCell(1).StringCellValue;
 				data.Grade = row.GetCell(2).StringCellValue;
 				data.Hp = (int)row.GetCell(3).NumericCellValue;
-				data.Mp = (int)row.GetCell(4).NumericCellValue;
-				data.Attack = (int)row.GetCell(5).NumericCellValue;
-				data.Attackspeed = (float)row.GetCell(6).NumericCellValue;
-				data.Defence = (int)row.GetCell(7).NumericCellValue;
-				data.Speed = (float)row.GetCell(8).NumericCellValue;
-				data.Element = row.GetCell(9).StringCellValue;
-				data.Weakness = row.GetCell(10).StringCellValue;
-				data.Abilities = row.GetCell(11).StringCellValue;
-				data.Loot = row.GetCell(12).StringCellValue;
-				data.Imagepath = row.GetCell(13).StringCellValue;
+				data.Defence = (int)row.GetCell(4).NumericCellValue;
+				data.Speed = (float)row.GetCell(5).NumericCellValue;
 
 				return data;
 			}
